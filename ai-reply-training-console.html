@@ -1,0 +1,651 @@
+<!--
+  Portfolio case study: AI Reply-Training Console (ReplyCoach) for a Home-Services Company
+  Built by Patrick Joseph Panuncillon, Director for AI Strategy and Growth.
+  Self-contained: inline CSS only, system fonts, no external requests, works offline.
+  Client and vendors anonymized per engagement confidentiality. No em dashes.
+  Matches the design system of the AI SMS Sales Assistant case study (same portfolio set).
+-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Reply-Training Console, Case Study | Patrick Joseph Panuncillon</title>
+<meta name="description" content="An internal AI reply-training console that teaches a home-services team its own approved voice back to its AI assistant, per department, with a learn-as-you-go loop and estimate-aware drafting. Built in 7 days, zero production impact.">
+
+<style>
+  :root {
+    /* Cool, teal-biased neutrals so the palette reads as chosen, not defaulted. */
+    --ink:        #14201e;
+    --ink-2:      #44534f;
+    --ink-3:      #6c7b76;
+    --ground:     #fbfcfb;
+    --surface:    #ffffff;
+    --panel:      #eef4f3;
+    --line:       #dde6e3;
+    --line-2:     #cdd9d6;
+
+    --accent:      #0e7c7b;
+    --accent-deep: #0a5755;
+    --accent-tint: #e3f1ef;
+    --accent-ink:  #084a48;
+
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --mono: ui-monospace, "Cascadia Code", "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+
+    --maxw: 1100px;
+    --prose: 66ch;
+    --radius: 14px;
+    --radius-sm: 9px;
+    --shadow: 0 1px 2px rgba(20,32,30,.04), 0 8px 24px rgba(20,32,30,.06);
+    --shadow-sm: 0 1px 2px rgba(20,32,30,.05);
+  }
+
+  * { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    border-top: 4px solid var(--accent);
+  }
+
+  h1, h2, h3 { line-height: 1.12; text-wrap: balance; letter-spacing: -0.01em; margin: 0; }
+  p { margin: 0; }
+  a { color: var(--accent-deep); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:hover { color: var(--accent); }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 3px;
+  }
+
+  /* ---------- layout ---------- */
+  .wrap { width: 100%; max-width: var(--maxw); margin-inline: auto; padding-inline: 22px; }
+
+  section { padding-block: clamp(48px, 8vw, 92px); }
+  .section--panel { background: var(--panel); border-block: 1px solid var(--line); }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: .72rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--accent-deep);
+    margin: 0 0 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 22px; height: 2px;
+    background: var(--accent);
+    display: inline-block;
+  }
+
+  .section__head { max-width: var(--prose); margin-bottom: 34px; }
+  .section__head h2 { font-size: clamp(1.5rem, 3.3vw, 2.1rem); font-weight: 800; }
+  .section__head .lede { margin-top: 14px; color: var(--ink-2); font-size: 1.08rem; }
+
+  .prose { max-width: var(--prose); color: var(--ink-2); }
+  .prose p + p { margin-top: 1em; }
+
+  /* ---------- hero ---------- */
+  .hero { padding-block: clamp(54px, 9vw, 104px); position: relative; }
+  .hero::after {
+    content: "";
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 46px 46px;
+    -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,.10), transparent 62%);
+            mask-image: linear-gradient(180deg, rgba(0,0,0,.10), transparent 62%);
+    opacity: .5;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hero .wrap { position: relative; z-index: 1; }
+
+  .hero__status {
+    font-family: var(--mono);
+    font-size: .73rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: center;
+    margin-bottom: 26px;
+  }
+  .hero__status .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 4px var(--accent-tint);
+    display: inline-block; margin-right: 8px; vertical-align: middle;
+  }
+  .hero h1 {
+    font-size: clamp(2.05rem, 5.4vw, 3.35rem);
+    font-weight: 800;
+    letter-spacing: -0.022em;
+    max-width: 17ch;
+  }
+  .hero__oneliner {
+    margin-top: 20px;
+    font-size: clamp(1.08rem, 2.1vw, 1.32rem);
+    line-height: 1.5;
+    color: var(--ink-2);
+    max-width: 62ch;
+  }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+  .chip {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 9px 16px 9px 14px;
+    display: inline-flex; align-items: baseline; gap: 9px;
+    box-shadow: var(--shadow-sm);
+  }
+  .chip b {
+    font-family: var(--mono);
+    font-variant-numeric: tabular-nums;
+    font-size: 1rem;
+    color: var(--accent-deep);
+    letter-spacing: -0.01em;
+  }
+  .chip span { font-size: .85rem; color: var(--ink-2); }
+
+  .byline {
+    margin-top: 30px;
+    font-family: var(--mono);
+    font-size: .82rem;
+    color: var(--ink-2);
+    letter-spacing: .01em;
+  }
+  .byline strong { color: var(--ink); font-weight: 600; }
+
+  /* ---------- figures ---------- */
+  figure { margin: 0; }
+  .fig { margin-top: 36px; }
+  .fig__frame {
+    border: 1.5px dashed var(--line-2);
+    border-radius: var(--radius);
+    background:
+      repeating-linear-gradient(135deg, var(--panel) 0 14px, transparent 14px 28px);
+    background-color: var(--surface);
+    aspect-ratio: 16 / 9;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 12px; text-align: center; padding: 24px;
+    color: var(--ink-3);
+  }
+  .fig__tag {
+    font-family: var(--mono);
+    font-size: .68rem;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--accent-deep);
+    background: var(--accent-tint);
+    border-radius: 999px;
+    padding: 5px 12px;
+  }
+  .fig__name { font-weight: 600; color: var(--ink-2); font-size: 1.02rem; max-width: 46ch; }
+  figcaption { margin-top: 12px; font-size: .95rem; color: var(--ink-2); display: flex; flex-direction: column; gap: 5px; }
+  .replace { font-family: var(--mono); font-size: .78rem; color: var(--ink-3); }
+  .replace em { font-style: italic; }
+
+  /* ---------- problem list ---------- */
+  .plist { list-style: none; padding: 0; margin: 0; display: grid; gap: 16px; max-width: var(--prose); }
+  .plist li {
+    display: grid; grid-template-columns: 22px 1fr; gap: 14px;
+    color: var(--ink-2);
+  }
+  .plist li::before {
+    content: ""; margin-top: .55em;
+    width: 9px; height: 9px; border-radius: 2px;
+    background: var(--accent); transform: rotate(45deg);
+  }
+
+  /* ---------- solution callout ---------- */
+  .note {
+    margin-top: 26px;
+    border-left: 3px solid var(--accent);
+    background: var(--accent-tint);
+    color: var(--accent-ink);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    padding: 16px 20px;
+    max-width: var(--prose);
+    font-size: .98rem;
+  }
+  .note .k {
+    font-family: var(--mono); font-size: .7rem; letter-spacing: .15em;
+    text-transform: uppercase; display: block; margin-bottom: 6px; opacity: .85;
+  }
+
+  /* ---------- capability cards ---------- */
+  .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 24px 24px 26px;
+    box-shadow: var(--shadow-sm);
+    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  }
+  .card:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: var(--line-2); }
+  .card h3 {
+    font-size: 1.1rem; font-weight: 700; padding-bottom: 12px; margin-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .card h3 .ix {
+    font-family: var(--mono); font-size: .72rem; color: var(--accent-deep);
+    background: var(--accent-tint); border-radius: 6px; padding: 3px 7px;
+    font-variant-numeric: tabular-nums;
+  }
+  .card p { color: var(--ink-2); font-size: .97rem; }
+
+  /* ---------- timeline ---------- */
+  .timeline { position: relative; display: grid; gap: 26px; margin-top: 8px; }
+  .timeline::before {
+    content: ""; position: absolute; left: 19px; top: 6px; bottom: 6px;
+    width: 2px; background: linear-gradient(var(--accent), var(--line));
+  }
+  .phase { position: relative; padding-left: 58px; }
+  .phase__num {
+    position: absolute; left: 0; top: 0;
+    width: 40px; height: 40px; border-radius: 50%;
+    background: var(--surface); border: 2px solid var(--accent);
+    color: var(--accent-deep);
+    font-family: var(--mono); font-weight: 600; font-size: .95rem;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 0 0 5px var(--ground);
+    font-variant-numeric: tabular-nums;
+  }
+  .phase h3 { font-size: 1.08rem; font-weight: 700; }
+  .phase .tag {
+    font-family: var(--mono); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--accent-deep); margin-left: 10px; vertical-align: middle;
+  }
+  .phase p { color: var(--ink-2); margin-top: 8px; font-size: .97rem; max-width: 62ch; }
+
+  /* ---------- results tiles ---------- */
+  .tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .tile {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 22px 20px; box-shadow: var(--shadow-sm);
+  }
+  .tile .num {
+    font-family: var(--mono); font-weight: 700;
+    font-size: clamp(1.5rem, 3.2vw, 2.0rem);
+    color: var(--accent-deep); letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums; line-height: 1;
+  }
+  .tile .lab { margin-top: 10px; font-size: .9rem; color: var(--ink-2); line-height: 1.4; }
+
+  /* ---------- band callouts ---------- */
+  .band {
+    margin-top: 26px; border: 1px solid var(--line); border-radius: var(--radius);
+    background: var(--surface); padding: 22px 24px; box-shadow: var(--shadow-sm);
+    display: grid; gap: 8px;
+  }
+  .band--accent { background: var(--accent-deep); border-color: var(--accent-deep); color: #eafaf8; }
+  .band--accent .k { color: #9fdedb; }
+  .band .k { font-family: var(--mono); font-size: .7rem; letter-spacing: .15em; text-transform: uppercase; color: var(--accent-deep); }
+  .band p { font-size: 1.02rem; }
+  .band--accent p { color: #f3fffe; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+
+  /* ---------- skill tags ---------- */
+  .tags { display: flex; flex-wrap: wrap; gap: 10px; max-width: 920px; }
+  .tags span {
+    font-family: var(--mono); font-size: .82rem;
+    background: var(--surface); border: 1px solid var(--line-2);
+    border-radius: 8px; padding: 8px 13px; color: var(--ink-2);
+    transition: border-color .15s ease, color .15s ease, background .15s ease;
+  }
+  .tags span:hover { border-color: var(--accent); color: var(--accent-deep); background: var(--accent-tint); }
+
+  /* ---------- outcome ---------- */
+  .outcome .wrap { max-width: 820px; }
+  .outcome h2 { font-size: clamp(1.5rem, 3.3vw, 2.1rem); font-weight: 800; }
+  .outcome p { color: var(--ink-2); font-size: 1.12rem; margin-top: 16px; }
+
+  /* ---------- footer ---------- */
+  footer {
+    background: var(--ink); color: #c8d3d0;
+    padding-block: 46px; border-top: 4px solid var(--accent);
+  }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 18px 40px; align-items: baseline; justify-content: space-between; }
+  footer .sig { color: #fff; font-weight: 600; }
+  footer .meta { font-family: var(--mono); font-size: .78rem; color: #8ea29e; letter-spacing: .03em; }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 760px) {
+    body { font-size: 16px; }
+    .cards, .grid-2 { grid-template-columns: 1fr; }
+    .tiles { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 430px) {
+    .tiles { grid-template-columns: 1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+    html { scroll-behavior: auto; }
+  }
+</style>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero">
+  <div class="wrap">
+    <div class="hero__status">
+      <span><span class="dot"></span>Production system</span>
+      <span>Case study</span>
+      <span>5 departments trained</span>
+      <span>Zero production impact</span>
+    </div>
+
+    <h1>AI Reply-Training Console for a Home-Services Company</h1>
+
+    <p class="hero__oneliner">
+      An internal console that teaches a company's own approved voice back to its AI text
+      assistant: pick a real customer question, read three drafts in that department's voice,
+      edit the best, and save it, and the system reuses it on the next similar question. No
+      model retraining.
+    </p>
+
+    <div class="chips">
+      <span class="chip"><b>5</b><span>departments given their own voice</span></span>
+      <span class="chip"><b>Tens of thousands</b><span>of voice vectors embedded</span></span>
+      <span class="chip"><b>7 days</b><span>single builder, end to end</span></span>
+      <span class="chip"><b>0</b><span>production impact during the build</span></span>
+    </div>
+
+    <p class="byline">
+      Built by <strong>Patrick Joseph Panuncillon</strong>, Director for AI Strategy and Growth.
+      Designed, built, shipped, and operated by one builder with AI augmentation.
+    </p>
+
+    <!-- IMAGE SLOT 1: HERO dashboard (screenshot required) -->
+    <figure class="fig">
+      <div class="fig__frame" role="img" aria-label="Placeholder for the training console dashboard screenshot">
+        <span class="fig__tag">Screenshot</span>
+        <span class="fig__name">The training cockpit: leadership KPIs and per-department charts, with a question queue ready to train.</span>
+      </div>
+      <figcaption>
+        <span>Pick a department, see what to train, watch the voice improve session by session.</span>
+        <span class="replace"><em>REPLACE: drop in a screenshot of the console dashboard. Blur any rep or customer names before publishing.</em></span>
+      </figcaption>
+    </figure>
+  </div>
+</header>
+
+<main>
+
+  <!-- ===================== PROBLEM ===================== -->
+  <section class="section--panel">
+    <div class="wrap">
+      <div class="section__head">
+        <p class="eyebrow">The problem</p>
+        <h2>One great AI voice for sales, and four departments without one.</h2>
+      </div>
+      <ul class="plist">
+        <li>The company ran five customer-facing departments across many inboxes and markets, but the live AI reply assistant existed for only one of them, anchored on its top closer's voice. Leadership wanted that quality everywhere.</li>
+        <li><strong>Voice drift.</strong> Pour every rep's messages into one model and the drafts come out as an averaged, committee voice. Each department needed its own anchored voice.</li>
+        <li><strong>No safe place to train.</strong> The live, customer-facing assistant could not be experimented on without risking the drafts that were already working.</li>
+        <li><strong>No memory of good.</strong> Approved answers were never captured, so the assistant never learned from the team's own best replies.</li>
+        <li>Mid-build, a new requirement: drafts had to cite the customer's real estimate, systems, prices, warranties, so pricing answers used real numbers, not generic ones.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== SOLUTION ===================== -->
+  <section>
+    <div class="wrap">
+      <div class="section__head">
+        <p class="eyebrow">The solution</p>
+        <h2>A safe place to teach the AI, that learns as you go.</h2>
+      </div>
+      <div class="prose">
+        <p>
+          An internal web console, served from the automation host and kept strictly separate
+          from the live assistant so training can never touch production. A trainer opens a
+          department, picks a real customer question, reads three AI drafts written in that
+          department's voice, edits the best one, and saves it.
+        </p>
+        <p>
+          Every saved answer is embedded and stored per department, then retrieved and reused on
+          the next similar question. The assistant gets better with each session, with no model
+          retraining. The drafting model is Claude; pricing questions pull the customer's real
+          quote so the reply cites actual numbers.
+        </p>
+      </div>
+      <div class="note">
+        <span class="k">The trust model</span>
+        Each department's voice is isolated so it stays clean, production is never touched during
+        training, and a pricing answer cites the customer's real estimate, never a guess.
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== HOW IT WORKS ===================== -->
+  <section class="section--panel">
+    <div class="wrap">
+      <div class="section__head">
+        <p class="eyebrow">How it works</p>
+        <h2>Eight capabilities behind the training loop.</h2>
+        <p class="lede">Described at the capability level: what each part does and why it matters.</p>
+      </div>
+
+      <div class="cards">
+        <div class="card">
+          <h3><span class="ix">Ingest</span>Multi-inbox ingestion</h3>
+          <p>A pull pipeline collects conversations from every owned inbox and regroups them by inbox to recover the per-department split, even though the messaging API returns a global set and ignores the inbox filter.</p>
+        </div>
+        <div class="card">
+          <h3><span class="ix">Isolate</span>Per-department voice isolation</h3>
+          <p>Each department's history is embedded into its own isolated section of a managed vector database. The live assistant's data stays untouched, so training can never pollute production.</p>
+        </div>
+        <div class="card">
+          <h3><span class="ix">Draft</span>Retrieve and draft three options</h3>
+          <p>For a chosen question, the app finds the most similar past situations in that department's section and drafts three reply options in its voice, with a separate model call summarizing the full conversation for context.</p>
+        </div>
+        <div class="card">
+          <h3><span class="ix">Learn</span>Capture and reuse loop</h3>
+          <p>When the trainer approves and saves an answer, it is stored in that department's approved-answers section and retrieved on the next similar question. The tool gets smarter immediately, no retraining.</p>
+        </div>
+        <div class="card">
+          <h3><span class="ix">Estimate</span>Estimate-aware drafting</h3>
+          <p>For pricing and warranty questions it resolves the customer's phone, looks up their real estimate, systems, prices, warranties, add-ons, and cites the real quote and estimate number, with a safe fallback when none exists.</p>
+        </div>
+        <div class="card">
+          <h3><span class="ix">Queue</span>Guided train-a-topic</h3>
+          <p>A "train all" flow walks the trainer through every customer message on a topic, one at a time, with a progress bar, so a whole topic can be trained to completion in one pass.</p>
+        </div>
+        <div class="card">
+          <h3><span class="ix">Voice</span>Swappable voice exemplars</h3>
+          <p>Each department's draft voice can be anchored to one chosen rep instead of averaging everyone, configured as a one-command, swappable setting.</p>
+        </div>
+        <div class="card">
+          <h3><span class="ix">Govern</span>Dashboard and access gate</h3>
+          <p>Leadership KPIs and per-department charts, a server-enforced access gate, same-origin serving with no cross-origin exposure, and per-department clustering of the top questions.</p>
+        </div>
+      </div>
+
+      <!-- IMAGE SLOT 2: ANSWER VIEW (screenshot required) -->
+      <figure class="fig">
+        <div class="fig__frame" role="img" aria-label="Placeholder for the answer view screenshot">
+          <span class="fig__tag">Screenshot</span>
+          <span class="fig__name">The answer view: a customer question with its full conversation, beside three editable reply options.</span>
+        </div>
+        <figcaption>
+          <span>Three drafts in the department's voice. The trainer edits and saves the best, and it is reused next time.</span>
+          <span class="replace"><em>REPLACE: screenshot of the answer / draft-pick view. Blur the customer name, number, and message text before publishing.</em></span>
+        </figcaption>
+      </figure>
+
+      <!-- IMAGE SLOT 3: ARCHITECTURE (diagram required) -->
+      <figure class="fig">
+        <div class="fig__frame" role="img" aria-label="Placeholder for the architecture diagram">
+          <span class="fig__tag">Diagram</span>
+          <span class="fig__name">Inboxes, then group by department, then isolated embeddings, then train loop, then estimate lookup.</span>
+        </div>
+        <figcaption>
+          <span>The live assistant reads the default section; each new department trains in its own isolated section.</span>
+          <span class="replace"><em>REPLACE: a clean, generic flow diagram. No real hostnames, vendor account names, or internal IDs.</em></span>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ===================== PHASED BUILD ===================== -->
+  <section>
+    <div class="wrap">
+      <div class="section__head">
+        <p class="eyebrow">The phased build</p>
+        <h2>Designed and shipped end to end in one week.</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="phase">
+          <div class="phase__num">1</div>
+          <h3>Single-department console live <span class="tag">Days 1 to 2</span></h3>
+          <p>The access gate, the pick, edit, save flow, and the learn loop, working for the first department on real questions.</p>
+        </div>
+        <div class="phase">
+          <div class="phase__num">2</div>
+          <h3>Multi-department ingest</h3>
+          <p>Pulled every owned inbox, recovered the per-department split, isolated each department's voice in its own section, and rebuilt the front end as a desktop dashboard with leadership KPIs.</p>
+        </div>
+        <div class="phase">
+          <div class="phase__num">3</div>
+          <h3>Estimate-awareness and security</h3>
+          <p>Scoped the estimate-aware drafting path, ran a full security review with remediation, and added authorship provenance over the build files.</p>
+        </div>
+        <div class="phase">
+          <div class="phase__num">4</div>
+          <h3>Guided queue and verified estimates</h3>
+          <p>Shipped the guided train-a-topic queue and wired estimate-aware drafting, then verified it cited a real customer's quoted systems and prices end to end.</p>
+        </div>
+        <div class="phase">
+          <div class="phase__num">5</div>
+          <h3>Voice exemplars and full documentation</h3>
+          <p>Staged the swappable voice-exemplar router and produced complete build documentation, a replication runbook, and this case study.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== RESULTS ===================== -->
+  <section class="section--panel">
+    <div class="wrap">
+      <div class="section__head">
+        <p class="eyebrow">Results and impact</p>
+        <h2>Five voices captured, production never touched.</h2>
+      </div>
+
+      <!-- results board, rendered in CSS, no screenshot needed -->
+      <div class="tiles">
+        <div class="tile"><div class="num">5</div><div class="lab">Departments given their own anchored voice</div></div>
+        <div class="tile"><div class="num">12</div><div class="lab">Owned inboxes ingested across 6 markets</div></div>
+        <div class="tile"><div class="num">Tens of thousands</div><div class="lab">Voice vectors embedded from the team's own history</div></div>
+        <div class="tile"><div class="num">942</div><div class="lab">Top questions clustered across the five departments</div></div>
+        <div class="tile"><div class="num">97%</div><div class="lab">Estimate-lookup coverage across the conversation corpus</div></div>
+        <div class="tile"><div class="num">7 days</div><div class="lab">From zero to live, a single builder</div></div>
+        <div class="tile"><div class="num">0</div><div class="lab">Production impact, full isolation from the live assistant</div></div>
+        <div class="tile"><div class="num">100%</div><div class="lab">Reproducible: every step scripted and documented</div></div>
+      </div>
+
+      <div class="grid-2" style="margin-top:26px">
+        <div class="band">
+          <span class="k">Verified end to end</span>
+          <p>Estimate-aware drafting was tested live: a customer's drafts correctly cited all four quoted systems and their exact prices, and a customer with no estimate fell back cleanly to a normal reply with no leaked data.</p>
+        </div>
+        <div class="band">
+          <span class="k">Treated as production</span>
+          <p>A full security review covered authentication, customer-data exposure, prompt injection, and secret handling. The customer-data endpoints were closed behind an access token and input guards were added.</p>
+        </div>
+      </div>
+
+      <div class="band band--accent">
+        <span class="k">Built to be rebuilt</span>
+        <p>Every step, from data pull to embedding to workflow deploy to front end, is a named script with a documented runbook and SHA-256 provenance fingerprints. Given the same accounts and keys, the whole system rebuilds from zero.</p>
+      </div>
+
+      <!-- IMAGE SLOT 4: LEARN LOOP or GUIDED QUEUE (screenshot or diagram) -->
+      <figure class="fig">
+        <div class="fig__frame" role="img" aria-label="Placeholder for the learn-loop or guided-queue visual">
+          <span class="fig__tag">Diagram or screenshot</span>
+          <span class="fig__name">Approve, store, reuse: the guided train-a-topic queue walking a topic to completion with a progress bar.</span>
+        </div>
+        <figcaption>
+          <span>Approve an answer once, and it is reused on the next similar question. Train a topic to completion in one pass.</span>
+          <span class="replace"><em>REPLACE: a simple learn-loop diagram, or a screenshot of the guided queue with the progress bar. Blur any customer text.</em></span>
+        </figcaption>
+      </figure>
+
+      <!-- IMAGE SLOT 5: ESTIMATE-AWARE DRAFT (screenshot required) -->
+      <figure class="fig">
+        <div class="fig__frame" role="img" aria-label="Placeholder for the estimate-aware draft screenshot">
+          <span class="fig__tag">Screenshot</span>
+          <span class="fig__name">An estimate-aware draft citing a customer's real quoted systems and prices.</span>
+        </div>
+        <figcaption>
+          <span>Pricing answers cite the customer's real estimate and estimate number, never a guess.</span>
+          <span class="replace"><em>REPLACE: screenshot of an estimate-aware draft. Blur the customer identity and the actual prices before publishing.</em></span>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ===================== WHAT IT DEMONSTRATES ===================== -->
+  <section>
+    <div class="wrap">
+      <div class="section__head">
+        <p class="eyebrow">What it demonstrates</p>
+        <h2>The skills behind the system.</h2>
+      </div>
+      <div class="tags">
+        <span>Per-persona voice isolation, no committee-averaged voice</span>
+        <span>Retrieval-augmented generation on a private corpus</span>
+        <span>Learn-as-you-go without model retraining</span>
+        <span>Estimate-aware drafting from a real-quote lookup</span>
+        <span>Multi-source data pipeline and ingestion</span>
+        <span>Prompt engineering and conversation summarization</span>
+        <span>Security review: auth, data exposure, prompt injection, secrets</span>
+        <span>Reproducible build: scripted, fingerprinted, documented</span>
+        <span>Same-origin web app and workflow automation</span>
+        <span>Full-stack solo delivery: data, AI orchestration, front end, security</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== OUTCOME / NEXT ===================== -->
+  <section class="section--panel outcome">
+    <div class="wrap">
+      <p class="eyebrow">Outcome and what is next</p>
+      <h2>Live, and feeding every department's voice.</h2>
+      <p>
+        The console is live and in daily use. The per-department voices it captures feed the
+        customer-facing reply assistant across lines of business, and the learn loop means it keeps
+        improving from the team's own best replies, no retraining required. It is one piece of a
+        broader AI program.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="wrap">
+    <span class="sig">Built by Patrick Joseph Panuncillon, Director for AI Strategy and Growth.</span>
+    <span class="meta">One builder, AI augmented. No agency. Case study, client and vendors anonymized.</span>
+  </div>
+</footer>
