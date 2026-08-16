@@ -1,16 +1,18 @@
 <!--
-  Portfolio case study: AI SMS Sales Assistant for a Home-Services Company
+  Portfolio case study: Invoice Automation, Case Study
   Built by Patrick Joseph Panuncillon, Director for AI Strategy and Growth.
   Self-contained: inline CSS only, system fonts, no external requests, works offline.
   Client and vendors anonymized per engagement confidentiality. No em dashes.
 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI SMS Sales Assistant, Case Study | Patrick Joseph Panuncillon</title>
-<meta name="description" content="A human-in-the-loop AI assistant that drafts on-brand text replies inside a home-services team's existing SMS platform. 48+ days live, zero outages, run cost down 65 to 70 percent.">
+<title>Invoice Automation, Case Study | Patrick Joseph Panuncillon</title>
+<meta name="description" content="Deterministic invoice drafting from a versioned rules registry behind a fail-closed validation gate, where the language model only names the invoice type and words the customer-facing lines. In build, in diagnosis.">
+<meta name="author" content="Patrick Joseph Panuncillon">
+<meta name="robots" content="index, follow">
 
 <style>
-  :root {
+:root {
     /* Cool, teal-biased neutrals so the palette reads as chosen, not defaulted. */
     --ink:        #14201e;
     --ink-2:      #44534f;
@@ -475,282 +477,96 @@
 
 <nav class="topnav"><div class="wrap">
 <a href="index.html" class="home">All builds</a>
+<a href="ai-sms-sales-assistant.html">Reply assistant</a>
 <a href="ai-reply-training-console.html">Training console</a>
 <a href="ai-call-dispatch-assistant.html">Dispatch assistant</a>
 <a href="ai-dispatch-understudy.html">Understudy</a>
 <a href="ai-campaign-automation.html">Campaigns</a>
-<a href="ai-invoice-automation.html">Invoicing</a>
 <a href="production-reliability-layer.html">Reliability</a>
 <a href="ai-search-reputation-lifecycle.html">Search and lifecycle</a>
 <a href="authorship-and-verification.html">Authorship</a>
 </div></nav>
 
-<!-- ===================== HERO ===================== -->
 <header class="hero">
   <div class="wrap">
     <div class="hero__status">
-      <span><span class="dot"></span>Production system</span>
-      <span>Case study</span>
-      <span>48+ days live</span>
-      <span>Zero outages</span>
+      <span><span class="dot"></span>In build</span>
+      <span>Case study</span><span>In diagnosis</span><span>Deterministic by design</span>
     </div>
-
-    <h1>AI SMS Sales Assistant for a Home-Services Company</h1>
-
-    <p class="hero__oneliner">
-      A human-in-the-loop AI assistant that drafts on-brand text replies inside the team's
-      existing SMS platform, grounded in the company's own conversation history, so reps answer
-      leads in seconds instead of minutes, without losing their voice.
-    </p>
-
-    <div class="chips">
-      <span class="chip"><b>48+</b><span>days live, zero outages</span></span>
-      <span class="chip"><b>65 to 70%</b><span>lower daily run cost</span></span>
-      <span class="chip"><b>Five-figure</b><span>annual plan savings</span></span>
-      <span class="chip"><b>~7 wks</b><span>kickoff to production</span></span>
-    </div>
-
+    <h1>Invoice Drafting Where the Language Model Never Touches a Number</h1>
+    <p class="hero__oneliner">A completed job triggers an invoice draft built from a versioned rules registry that encodes the finance lead's judgment. The draft must clear strict validation before anything is written anywhere, and the language model is permitted exactly two jobs, neither of which is arithmetic.</p>
+    <div class="chips"><span class="chip"><b>In build</b><span>currently in diagnosis</span></span><span class="chip"><b>0</b><span>totals set by a model</span></span><span class="chip"><b>Fail closed</b><span>validation gate before any write</span></span><span class="chip"><b>Versioned</b><span>rules registry, reconstructable</span></span></div>
     <p class="byline">
       Built by <strong>Patrick Joseph Panuncillon</strong>, Director for AI Strategy and Growth.
       Designed, built, shipped, and operated by one builder with AI augmentation.
     </p>
-
-
-</div>
+  </div>
 </header>
-
 <main>
-
-  <!-- ===================== PROBLEM ===================== -->
-  <section class="section--panel">
-    <div class="wrap">
-      <div class="section__head">
-        <p class="eyebrow">The problem</p>
-        <h2>Speed-to-lead was leaking deals, one text at a time.</h2>
-      </div>
-      <ul class="plist">
-        <li>Sales reps get a flood of inbound customer texts across many market inboxes. The speed-to-lead window is short, and slow replies lose deals.</li>
-        <li>Every reply was typed from scratch. Quality and voice were inconsistent, and high-volume or after-hours periods meant missed or delayed responses.</li>
-        <li>Off-the-shelf AI reply tools sound generic. They do not know this company's pricing, promotions, financing options, or how this team actually talks.</li>
-      </ul>
+<section class="section--panel">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">The problem</p>
+      <h2>The worst possible place to put a probabilistic system.</h2>
+      
     </div>
-  </section>
+    <ul class="plist"><li>Invoicing a completed job is repetitive judgment: which invoice type, which line items, which tax treatment, which account code. It is slow, and it queues behind the one person who holds the judgment.</li><li>It is also the worst possible place for a probabilistic system. An invoice that is subtly wrong is worse than an invoice that is late, because it reaches a customer and an accounting ledger and is discovered months later.</li><li>Most attempts at AI invoicing put the model in the middle of the flow and then try to constrain it with instructions. That is the design error, and no amount of prompt engineering repairs an architecture that lets a model near a total.</li></ul>
+  </div>
+</section>
 
-  <!-- ===================== SOLUTION ===================== -->
-  <section>
-    <div class="wrap">
-      <div class="section__head">
-        <p class="eyebrow">The solution</p>
-        <h2>AI drafts, a human always sends.</h2>
-      </div>
-      <div class="prose">
-        <p>
-          A browser-based AI assistant lives inside the rep's existing SMS tool. The moment a
-          customer texts, it generates three ready-to-send reply drafts in the rep's own voice.
-          The rep edits if needed and sends with one click.
-        </p>
-        <p>
-          Nothing is ever sent automatically. A person is always in the loop, and the drafting
-          model is Claude. High-risk messages, such as safety, legal, billing disputes, or a
-          request for a manager, are detected and escalated to a team channel instead of being
-          auto-drafted.
-        </p>
-      </div>
-      <div class="note">
-        <span class="k">The trust model</span>
-        Context in, three smart drafts out, a human reviews and sends. The customer experience stays
-        personal, and the assistant never invents a price.
-      </div>
+<section>
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">The solution</p>
+      <h2>Rules produce the numbers. The model produces the sentences. A gate decides if anything is written.</h2>
+      
     </div>
-  </section>
+    <div class="prose"><p>The judgment is encoded once, explicitly, in a versioned rules registry built with the finance lead. A completed job triggers a deterministic draft from that registry, so the same job produces the same draft every time.</p><p>The draft is then checked against strict validation, and only a draft that clears it is written anywhere. The language model is used for exactly two things: naming the invoice type and wording the customer-facing lines. It never sets, adjusts, reviews, or influences a total, a tax decision, or an account code.</p></div><div class="note"><span class="k">Determinism where it counts</span>The boundary around the model is architectural, not instructional. The model is not told to avoid totals. It is never given them, and its output has nowhere to reach them.</div>
+  </div>
+</section>
 
-  <!-- ===================== HOW IT WORKS ===================== -->
-  <section class="section--panel">
-    <div class="wrap">
-      <div class="section__head">
-        <p class="eyebrow">How it works</p>
-        <h2>Eight capabilities behind every draft.</h2>
-        <p class="lede">Described at the capability level: what each part does and why it matters.</p>
-      </div>
-
-      <div class="cards">
-        <div class="card">
-          <h3><span class="ix">RAG</span>Grounded in the company's own data</h3>
-          <p>Every draft is informed by the team's real past conversations, retrieved on the fly from a managed vector database, so replies match how this team actually writes and what it offers.</p>
-        </div>
-        <div class="card">
-          <h3><span class="ix">Voices</span>Per-department assistants</h3>
-          <p>Separate, purpose-built assistants for each line of business, sales, service, electrical, and more, each grounded in its own history and operating playbook. Not a one-size-fits-all bot.</p>
-        </div>
-        <div class="card">
-          <h3><span class="ix">Latency</span>Instant, zero-wait drafts</h3>
-          <p>A pre-generation layer prepares the reply the instant a message arrives, so the draft is waiting before the rep opens the chat. No ten-second spinner.</p>
-        </div>
-        <div class="card">
-          <h3><span class="ix">Context</span>Customer-aware</h3>
-          <p>The assistant references the customer's real quote and what was discussed on a recent phone call, so the text picks up where the last touch left off, and it never invents a price.</p>
-        </div>
-        <div class="card">
-          <h3><span class="ix">Sell</span>Consultative, not an order-taker</h3>
-          <p>Drafts acknowledge the customer, answer the question, ask a smart follow-up, and push to a call when a deal needs a human touch.</p>
-        </div>
-        <div class="card">
-          <h3><span class="ix">Estimate</span>Rep-in-loop auto-estimates</h3>
-          <p>From a conversation, the assistant can draft a real estimate. The rep enters or accepts AI-suggested details and creates it, with identity fields auto-filled from the lead record.</p>
-        </div>
-        <div class="card">
-          <h3><span class="ix">Learn</span>Always learning</h3>
-          <p>A nightly process feeds new real conversations back into the system, including the replies reps actually sent, so it keeps sounding more like the team over time.</p>
-        </div>
-        <div class="card">
-          <h3><span class="ix">Cost</span>Cost-controlled by design</h3>
-          <p>A routing layer skips junk messages, uses a cheaper model for simple replies and the top model for substantive ones, and caches the heavy shared context to keep running cost low.</p>
-        </div>
-      </div>
-
-
-
-</div>
-  </section>
-
-  <!-- ===================== PHASED BUILD ===================== -->
-  <section>
-    <div class="wrap">
-      <div class="section__head">
-        <p class="eyebrow">The phased build</p>
-        <h2>Shipped in phases, each one answering something the team actually needed.</h2>
-      </div>
-
-      <div class="timeline">
-        <div class="phase">
-          <div class="phase__num">1</div>
-          <h3>Proof of concept <span class="tag">Live, used daily</span></h3>
-          <p>A message comes in, the AI returns three drafts in the panel. Simple, but real, and in a rep's hands fast on live customers.</p>
-        </div>
-        <div class="phase">
-          <div class="phase__num">2</div>
-          <h3>The redesign that made it stick <span class="tag">A deliberate half-step</span></h3>
-          <p>The first rep said the panel blocked his screen, so it was rebuilt to float, drag, and resize. That turned "I tried it" into "I use it every day."</p>
-        </div>
-        <div class="phase">
-          <div class="phase__num">3</div>
-          <h3>Voice and efficiency</h3>
-          <p>Grounded the drafts in thousands of the rep's real past messages, added caching to cut cost, a nightly learning sync, and an alert-the-team path for anything unfamiliar instead of guessing.</p>
-        </div>
-        <div class="phase">
-          <div class="phase__num">4</div>
-          <h3>Facts and consultative tone</h3>
-          <p>Real estimate prices, recent-call context, a consultative rewrite, and the instant pre-generation that removed the wait.</p>
-        </div>
-        <div class="phase">
-          <div class="phase__num">5</div>
-          <h3>Auto-estimates and multi-department rollout</h3>
-          <p>Rep-in-loop estimate creation, plus purpose-built assistants cloned per department, each in its own voice.</p>
-        </div>
-      </div>
+<section>
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">How it works</p>
+      <h2>Six components, and a hard boundary.</h2>
+      
     </div>
-  </section>
+    <div class="cards"><div class="card"><h3><span class="ix">Registry</span>Judgment written down once</h3><p>The finance lead's rules are encoded explicitly and versioned, so a change in policy is a reviewable change to a file rather than a new habit that spreads by word of mouth.</p></div><div class="card"><h3><span class="ix">Trigger</span>A completed job, not a schedule</h3><p>The draft is produced from the event that actually carries meaning. Drafts track reality rather than a clock, and a job that did not complete produces nothing.</p></div><div class="card"><h3><span class="ix">Deterministic</span>Same job, same draft</h3><p>Totals, tax treatment, and account coding come from the registry alone. Given the same job, the draft is byte-identical every time, which is what makes review and diagnosis possible at all.</p></div><div class="card"><h3><span class="ix">Gate</span>Strict validation before any write</h3><p>A draft that fails validation is not written, not partially written, and not queued for later. It stops and raises. Fail closed is the only acceptable default when the output is financial.</p></div><div class="card"><h3><span class="ix">Model scope</span>Exactly two jobs</h3><p>The language model names the invoice type and words the customer-facing lines. That is the entire surface. It has no access to totals, tax treatment, or account codes, by construction rather than by instruction.</p></div><div class="card"><h3><span class="ix">Versioning</span>Reconstructable on any date</h3><p>Because the registry is versioned, what the system believed on any given date can be reconstructed. That matters the first time someone asks why an invoice from three months ago looks the way it does.</p></div></div><figure><div class="flow"><div class="flow__node"><span class="n">01</span><span class="t">Job completed</span><span class="d">The real event, not a scheduled sweep</span></div><span class="flow__arrow" aria-hidden="true">&#8250;</span><div class="flow__node"><span class="n">02</span><span class="t">Versioned rules registry</span><span class="d">The finance lead's judgment, written down</span></div><span class="flow__arrow" aria-hidden="true">&#8250;</span><div class="flow__node"><span class="n">03</span><span class="t">Deterministic draft</span><span class="d">Totals, tax, and coding. No model involved</span></div><span class="flow__arrow" aria-hidden="true">&#8250;</span><div class="flow__node"><span class="n">04</span><span class="t">Model wording</span><span class="d">Invoice type name and customer-facing lines only</span></div><span class="flow__arrow" aria-hidden="true">&#8250;</span><div class="flow__node flow__node--gate"><span class="n">05</span><span class="t">Strict validation</span><span class="d">Fails closed. Nothing partial is ever written</span></div><span class="flow__arrow" aria-hidden="true">&#8250;</span><div class="flow__node"><span class="n">06</span><span class="t">Written once</span><span class="d">To the accounting system, after the gate</span></div></div><figcaption class="flow__cap">The model enters at step four and touches only text. Steps two, three, and five never see it.</figcaption></figure>
+  </div>
+</section>
 
-  <!-- ===================== RESULTS ===================== -->
-  <section class="section--panel">
-    <div class="wrap">
-      <div class="section__head">
-        <p class="eyebrow">Results and impact</p>
-        <h2>Measured on real traffic, not a demo.</h2>
-      </div>
-
-      <!-- IMAGE SLOT 7: results dashboard, rendered in CSS, no screenshot needed -->
-      <div class="tiles">
-        <div class="tile"><div class="num">48+</div><div class="lab">Days live in production, zero outages</div></div>
-        <div class="tile"><div class="num">65 to 70%</div><div class="lab">Lower daily running cost</div></div>
-        <div class="tile"><div class="num">Five-figure</div><div class="lab">Saved per year on the messaging plan</div></div>
-        <div class="tile"><div class="num">Thousands</div><div class="lab">Real past messages grounding the rep's voice</div></div>
-        <div class="tile"><div class="num">43%</div><div class="lab">Lower cost per draft from routing and caching</div></div>
-        <div class="tile"><div class="num">3</div><div class="lab">Drafts ready per inbound message, instant</div></div>
-        <div class="tile"><div class="num">0</div><div class="lab">Auto-sends. A human reviews every reply</div></div>
-        <div class="tile"><div class="num">~7 wks</div><div class="lab">From kickoff to a live, daily-used system</div></div>
-      </div>
-
-      <!-- IMAGE SLOT 4: cost reduction chart, rendered in CSS from the real numbers -->
-      <figure class="chart">
-        <div class="chart__row">
-          <span class="chart__lab">Before</span>
-          <div class="chart__track">
-            <div class="chart__bar chart__bar--before"><span>Before</span></div>
-          </div>
-        </div>
-        <div class="chart__row">
-          <span class="chart__lab">After</span>
-          <div class="chart__track">
-            <div class="chart__bar chart__bar--after"><span>After</span></div>
-          </div>
-        </div>
-        <p class="chart__foot">Daily running cost down ~65 to 70%, plus ~43% lower per draft. No loss of quality or speed.</p>
-        <figcaption style="margin-top:14px">
-          <span>Running cost down ~65 to 70%, measured on real traffic, with no loss of quality.</span>
-        </figcaption>
-      </figure>
-
-      <div class="grid-2" style="margin-top:26px">
-        <div class="band">
-          <span class="k">Production note</span>
-          <p>When a third-party memory database had a brief outage, it was caught and fully restored the same day, with no customer impact, and the system caught up on everything it missed.</p>
-        </div>
-        <div class="band">
-          <span class="k">Facts, not guesses</span>
-          <p>The assistant quotes the customer's real estimate and recent-call context, never a made-up price. Auto-drafted estimates are reviewed by the rep before anything is sent.</p>
-        </div>
-      </div>
-
-      <div class="band band--accent">
-        <span class="k">Scope vs effort</span>
-        <p>One operator, working with AI augmentation, delivered the scope a 5 to 6 person development team would typically take 4 to 6 months to ship.</p>
-      </div>
-
-
-</div>
-  </section>
-
-  <!-- ===================== WHAT IT DEMONSTRATES ===================== -->
-  <section>
-    <div class="wrap">
-      <div class="section__head">
-        <p class="eyebrow">What it demonstrates</p>
-        <h2>The skills behind the system.</h2>
-      </div>
-      <div class="tags">
-        <span>Human-in-the-loop AI product design</span>
-        <span>Retrieval-augmented generation on a private corpus</span>
-        <span>Multi-agent / per-persona systems</span>
-        <span>Prompt engineering</span>
-        <span>Safety and escalation guardrails</span>
-        <span>Latency engineering: pre-generation + caching</span>
-        <span>LLM cost optimization</span>
-        <span>Browser-extension integration</span>
-        <span>Workflow-automation integration</span>
-        <span>Production operations: monitoring, incident response</span>
-        <span>Continuous learning pipelines</span>
-        <span>Turning a messy sales operation into a shipped, daily-used system</span>
-      </div>
+<section class="section--panel">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">The boundary</p>
+      <h2>Where the model is not allowed, and why that is architecture rather than policy.</h2>
+      
     </div>
-  </section>
+    <div class="grid-2" style="margin-top:26px"><div class="band"><span class="k">What the model never sees</span><p>Totals, subtotals, tax treatment, account codes, and rate tables are produced by the registry and are not part of any model input or output. A boundary that depends on the model choosing to respect an instruction is not a boundary.</p></div><div class="band"><span class="k">What the model is genuinely good at</span><p>Naming an invoice type sensibly and wording a customer-facing line clearly are language problems, and the model is better at them than a template is. Using it for exactly that, and nothing adjacent, is the point.</p></div></div><div class="band band--accent"><span class="k">Status: in build, in diagnosis</span><p>This system is in build and currently in diagnosis against real job data. It is described here at the design level. It is included because the design commitment is the transferable part, and because the boundary it draws is the one most AI invoicing attempts get wrong.</p></div>
+  </div>
+</section>
 
-  <!-- ===================== OUTCOME / NEXT ===================== -->
-  <section class="section--panel outcome">
-    <div class="wrap">
-      <p class="eyebrow">Outcome and what is next</p>
-      <h2>Live, expanding, and the first of several.</h2>
-      <p>
-        The system is live and expanding from the first department to every line of business, with
-        auto-drafted estimates and continuous learning. It is the first of several AI initiatives in
-        the engagement.
-      </p>
+<section>
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">What it demonstrates</p>
+      <h2>The skills behind the system.</h2>
+      
     </div>
-  </section>
+    <div class="tags"><span>Deterministic automation with a narrow model surface</span><span>Rules-registry design and versioning</span><span>Validation gates and fail-closed design</span><span>Financial-system integration</span><span>Encoding domain expert judgment</span><span>Event-driven triggers</span><span>Auditability and point-in-time reconstruction</span><span>Knowing where not to use a model</span><span>Architectural constraints over prompt instructions</span></div>
+  </div>
+</section>
 
+<section class="section--panel outcome">
+  <div class="wrap">
+    <p class="eyebrow">Outcome and what is next</p>
+    <h2>In build. The design commitment is already settled.</h2>
+    <p>The system is in build and in diagnosis against real job data. The architecture is not in question: the numbers come from reviewed, versioned rules, the model writes sentences, and nothing is written anywhere until a strict gate permits it. Results will be added here when the system has produced enough of them to report.</p>
+  </div>
+</section>
 </main>
 
-<!-- ===================== FOOTER ===================== -->
 <section class="legal">
   <div class="wrap">
     <h4>Confidentiality and intellectual property</h4>

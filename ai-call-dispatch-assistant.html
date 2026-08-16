@@ -1,16 +1,18 @@
 <!--
-  Portfolio case study: AI SMS Sales Assistant for a Home-Services Company
+  Portfolio case study: AI Call-Time Dispatch Assistant, Case Study
   Built by Patrick Joseph Panuncillon, Director for AI Strategy and Growth.
   Self-contained: inline CSS only, system fonts, no external requests, works offline.
   Client and vendors anonymized per engagement confidentiality. No em dashes.
 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI SMS Sales Assistant, Case Study | Patrick Joseph Panuncillon</title>
-<meta name="description" content="A human-in-the-loop AI assistant that drafts on-brand text replies inside a home-services team's existing SMS platform. 48+ days live, zero outages, run cost down 65 to 70 percent.">
+<title>AI Call-Time Dispatch Assistant, Case Study | Patrick Joseph Panuncillon</title>
+<meta name="description" content="A booking panel inside a field-service platform that identifies the caller, matches a qualified technician, and offers an arrival window from live road distances, so the job is booked during the call. Live, in tuning.">
+<meta name="author" content="Patrick Joseph Panuncillon">
+<meta name="robots" content="index, follow">
 
 <style>
-  :root {
+:root {
     /* Cool, teal-biased neutrals so the palette reads as chosen, not defaulted. */
     --ink:        #14201e;
     --ink-2:      #44534f;
@@ -475,8 +477,8 @@
 
 <nav class="topnav"><div class="wrap">
 <a href="index.html" class="home">All builds</a>
+<a href="ai-sms-sales-assistant.html">Reply assistant</a>
 <a href="ai-reply-training-console.html">Training console</a>
-<a href="ai-call-dispatch-assistant.html">Dispatch assistant</a>
 <a href="ai-dispatch-understudy.html">Understudy</a>
 <a href="ai-campaign-automation.html">Campaigns</a>
 <a href="ai-invoice-automation.html">Invoicing</a>
@@ -485,272 +487,97 @@
 <a href="authorship-and-verification.html">Authorship</a>
 </div></nav>
 
-<!-- ===================== HERO ===================== -->
 <header class="hero">
   <div class="wrap">
     <div class="hero__status">
       <span><span class="dot"></span>Production system</span>
-      <span>Case study</span>
-      <span>48+ days live</span>
-      <span>Zero outages</span>
+      <span>Case study</span><span>Live, in tuning</span><span>Zero-downtime deploys</span>
     </div>
-
-    <h1>AI SMS Sales Assistant for a Home-Services Company</h1>
-
-    <p class="hero__oneliner">
-      A human-in-the-loop AI assistant that drafts on-brand text replies inside the team's
-      existing SMS platform, grounded in the company's own conversation history, so reps answer
-      leads in seconds instead of minutes, without losing their voice.
-    </p>
-
-    <div class="chips">
-      <span class="chip"><b>48+</b><span>days live, zero outages</span></span>
-      <span class="chip"><b>65 to 70%</b><span>lower daily run cost</span></span>
-      <span class="chip"><b>Five-figure</b><span>annual plan savings</span></span>
-      <span class="chip"><b>~7 wks</b><span>kickoff to production</span></span>
-    </div>
-
+    <h1>AI Call-Time Dispatch Assistant for a Multi-Trade Field-Service Operation</h1>
+    <p class="hero__oneliner">A booking panel that fills itself while the phone is still ringing. It identifies the caller, matches a qualified technician against the day's roster, and offers an arrival window that live road distances can actually support, so the job is booked while the customer is still on the line.</p>
+    <div class="chips"><span class="chip"><b>1 click</b><span>from live call to booked job</span></span><span class="chip"><b>0</b><span>blank screens, every path returns</span></span><span class="chip"><b>Live roads</b><span>not radius assumptions</span></span><span class="chip"><b>Versioned</b><span>engine, zero-downtime cutover</span></span></div>
     <p class="byline">
       Built by <strong>Patrick Joseph Panuncillon</strong>, Director for AI Strategy and Growth.
       Designed, built, shipped, and operated by one builder with AI augmentation.
     </p>
-
-
-</div>
+  </div>
 </header>
-
 <main>
-
-  <!-- ===================== PROBLEM ===================== -->
-  <section class="section--panel">
-    <div class="wrap">
-      <div class="section__head">
-        <p class="eyebrow">The problem</p>
-        <h2>Speed-to-lead was leaking deals, one text at a time.</h2>
-      </div>
-      <ul class="plist">
-        <li>Sales reps get a flood of inbound customer texts across many market inboxes. The speed-to-lead window is short, and slow replies lose deals.</li>
-        <li>Every reply was typed from scratch. Quality and voice were inconsistent, and high-volume or after-hours periods meant missed or delayed responses.</li>
-        <li>Off-the-shelf AI reply tools sound generic. They do not know this company's pricing, promotions, financing options, or how this team actually talks.</li>
-      </ul>
+<section class="section--panel">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">The problem</p>
+      <h2>A booking is four judgments made in seconds, from one person's memory.</h2>
+      
     </div>
-  </section>
+    <ul class="plist"><li>Booking a service call means deciding who is qualified, who is actually free, whether they can physically reach the address in time, and whether the work is even in scope. All of it while a customer waits on the line.</li><li>That judgment lived with one or two senior dispatchers. When they were off shift, booking quality dropped, and none of the reasoning was written down anywhere a system could use.</li><li>Generic scheduling tools offer time slots without knowing whether a qualified technician can reach the address inside the window. A slot that looks bookable and is not produces a cancellation, a wasted truck roll, and a customer who now distrusts the next promise.</li></ul>
+  </div>
+</section>
 
-  <!-- ===================== SOLUTION ===================== -->
-  <section>
-    <div class="wrap">
-      <div class="section__head">
-        <p class="eyebrow">The solution</p>
-        <h2>AI drafts, a human always sends.</h2>
-      </div>
-      <div class="prose">
-        <p>
-          A browser-based AI assistant lives inside the rep's existing SMS tool. The moment a
-          customer texts, it generates three ready-to-send reply drafts in the rep's own voice.
-          The rep edits if needed and sends with one click.
-        </p>
-        <p>
-          Nothing is ever sent automatically. A person is always in the loop, and the drafting
-          model is Claude. High-risk messages, such as safety, legal, billing disputes, or a
-          request for a manager, are detected and escalated to a team channel instead of being
-          auto-drafted.
-        </p>
-      </div>
-      <div class="note">
-        <span class="k">The trust model</span>
-        Context in, three smart drafts out, a human reviews and sends. The customer experience stays
-        personal, and the assistant never invents a price.
-      </div>
+<section>
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">The solution</p>
+      <h2>The panel does the arithmetic. The dispatcher still decides.</h2>
+      
     </div>
-  </section>
+    <div class="prose"><p>A panel lives inside the field-service platform the dispatchers already work in. When a call connects, it populates itself: the inbound number resolves against the customer record, technicians are filtered by trade qualification and the published roster, and arrival windows are computed from live driving distance and current crew position rather than from a fixed grid or a radius.</p><p>Work outside the service area or the trade scope is declined in the panel with the reason shown, rather than booked now and cancelled later. Nothing books itself. The dispatcher reviews what the panel proposes and commits it with one click.</p></div><div class="note"><span class="k">The trust model</span>The panel performs the arithmetic that used to be done from memory, shows the reasoning behind every offer, and writes nothing until a person clicks.</div>
+  </div>
+</section>
 
-  <!-- ===================== HOW IT WORKS ===================== -->
-  <section class="section--panel">
-    <div class="wrap">
-      <div class="section__head">
-        <p class="eyebrow">How it works</p>
-        <h2>Eight capabilities behind every draft.</h2>
-        <p class="lede">Described at the capability level: what each part does and why it matters.</p>
-      </div>
-
-      <div class="cards">
-        <div class="card">
-          <h3><span class="ix">RAG</span>Grounded in the company's own data</h3>
-          <p>Every draft is informed by the team's real past conversations, retrieved on the fly from a managed vector database, so replies match how this team actually writes and what it offers.</p>
-        </div>
-        <div class="card">
-          <h3><span class="ix">Voices</span>Per-department assistants</h3>
-          <p>Separate, purpose-built assistants for each line of business, sales, service, electrical, and more, each grounded in its own history and operating playbook. Not a one-size-fits-all bot.</p>
-        </div>
-        <div class="card">
-          <h3><span class="ix">Latency</span>Instant, zero-wait drafts</h3>
-          <p>A pre-generation layer prepares the reply the instant a message arrives, so the draft is waiting before the rep opens the chat. No ten-second spinner.</p>
-        </div>
-        <div class="card">
-          <h3><span class="ix">Context</span>Customer-aware</h3>
-          <p>The assistant references the customer's real quote and what was discussed on a recent phone call, so the text picks up where the last touch left off, and it never invents a price.</p>
-        </div>
-        <div class="card">
-          <h3><span class="ix">Sell</span>Consultative, not an order-taker</h3>
-          <p>Drafts acknowledge the customer, answer the question, ask a smart follow-up, and push to a call when a deal needs a human touch.</p>
-        </div>
-        <div class="card">
-          <h3><span class="ix">Estimate</span>Rep-in-loop auto-estimates</h3>
-          <p>From a conversation, the assistant can draft a real estimate. The rep enters or accepts AI-suggested details and creates it, with identity fields auto-filled from the lead record.</p>
-        </div>
-        <div class="card">
-          <h3><span class="ix">Learn</span>Always learning</h3>
-          <p>A nightly process feeds new real conversations back into the system, including the replies reps actually sent, so it keeps sounding more like the team over time.</p>
-        </div>
-        <div class="card">
-          <h3><span class="ix">Cost</span>Cost-controlled by design</h3>
-          <p>A routing layer skips junk messages, uses a cheaper model for simple replies and the top model for substantive ones, and caches the heavy shared context to keep running cost low.</p>
-        </div>
-      </div>
-
-
-
-</div>
-  </section>
-
-  <!-- ===================== PHASED BUILD ===================== -->
-  <section>
-    <div class="wrap">
-      <div class="section__head">
-        <p class="eyebrow">The phased build</p>
-        <h2>Shipped in phases, each one answering something the team actually needed.</h2>
-      </div>
-
-      <div class="timeline">
-        <div class="phase">
-          <div class="phase__num">1</div>
-          <h3>Proof of concept <span class="tag">Live, used daily</span></h3>
-          <p>A message comes in, the AI returns three drafts in the panel. Simple, but real, and in a rep's hands fast on live customers.</p>
-        </div>
-        <div class="phase">
-          <div class="phase__num">2</div>
-          <h3>The redesign that made it stick <span class="tag">A deliberate half-step</span></h3>
-          <p>The first rep said the panel blocked his screen, so it was rebuilt to float, drag, and resize. That turned "I tried it" into "I use it every day."</p>
-        </div>
-        <div class="phase">
-          <div class="phase__num">3</div>
-          <h3>Voice and efficiency</h3>
-          <p>Grounded the drafts in thousands of the rep's real past messages, added caching to cut cost, a nightly learning sync, and an alert-the-team path for anything unfamiliar instead of guessing.</p>
-        </div>
-        <div class="phase">
-          <div class="phase__num">4</div>
-          <h3>Facts and consultative tone</h3>
-          <p>Real estimate prices, recent-call context, a consultative rewrite, and the instant pre-generation that removed the wait.</p>
-        </div>
-        <div class="phase">
-          <div class="phase__num">5</div>
-          <h3>Auto-estimates and multi-department rollout</h3>
-          <p>Rep-in-loop estimate creation, plus purpose-built assistants cloned per department, each in its own voice.</p>
-        </div>
-      </div>
+<section class="section--panel">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">How it works</p>
+      <h2>Eight capabilities behind a one-click booking.</h2>
+      <p class="lede">Described at the capability level. No code, endpoints, or vendor account detail.</p>
     </div>
-  </section>
+    <div class="cards"><div class="card"><h3><span class="ix">Identify</span>The caller is known before hello</h3><p>The inbound number resolves against the customer record while the phone is still ringing, so history, address, and prior jobs are already on screen when the dispatcher answers.</p></div><div class="card"><h3><span class="ix">Match</span>Skill and roster aware</h3><p>Technicians are filtered by trade qualification and by the published roster for that day. An unqualified or off-shift technician is never offered, so the panel cannot propose a booking the business cannot honour.</p></div><div class="card"><h3><span class="ix">Travel</span>Real road distance, not a radius</h3><p>Arrival windows are computed from live driving distance and current crew position. The window offered is one the road network can actually support, which is the whole difference between a promise and a guess.</p></div><div class="card"><h3><span class="ix">Scope</span>A stated no, at the right moment</h3><p>Work outside the service area or trade scope is declined in the panel with the reason shown. Declining on the call is cheaper than a cancellation, a wasted truck roll, and a broken promise.</p></div><div class="card"><h3><span class="ix">Fallback</span>Never a blank screen</h3><p>Every path returns something usable. If a data source is slow or unavailable the panel degrades to a reduced but still bookable state and says so, because a panel that sometimes shows nothing is a panel people stop opening.</p></div><div class="card"><h3><span class="ix">Versioning</span>Zero-downtime engine cutover</h3><p>The routing engine is versioned. A new ruleset is published beside the running one and cut over deliberately, so a deploy never lands in the middle of a live call.</p></div><div class="card"><h3><span class="ix">Book</span>One click, one write</h3><p>The confirmed booking is written once into the field-service platform. No double entry, no retyping what the panel already resolved, no second system to reconcile.</p></div><div class="card"><h3><span class="ix">Audit</span>Every offer records why</h3><p>The panel keeps the reasoning behind each technician and window it offered. That is what makes the system tunable against real outcomes instead of mysterious.</p></div></div><figure><div class="flow"><div class="flow__node"><span class="n">01</span><span class="t">Call connects</span><span class="d">Inbound number arrives from the phone system</span></div><span class="flow__arrow" aria-hidden="true">&#8250;</span><div class="flow__node"><span class="n">02</span><span class="t">Caller resolved</span><span class="d">Matched to the customer record and job history</span></div><span class="flow__arrow" aria-hidden="true">&#8250;</span><div class="flow__node"><span class="n">03</span><span class="t">Skill and roster</span><span class="d">Only qualified, on-shift technicians survive</span></div><span class="flow__arrow" aria-hidden="true">&#8250;</span><div class="flow__node"><span class="n">04</span><span class="t">Road-distance window</span><span class="d">Live driving time and current crew position</span></div><span class="flow__arrow" aria-hidden="true">&#8250;</span><div class="flow__node flow__node--gate"><span class="n">05</span><span class="t">Scope check</span><span class="d">Out of area or out of trade is declined with a reason</span></div><span class="flow__arrow" aria-hidden="true">&#8250;</span><div class="flow__node flow__node--gate"><span class="n">06</span><span class="t">Dispatcher reviews</span><span class="d">A person confirms. Nothing books itself</span></div><span class="flow__arrow" aria-hidden="true">&#8250;</span><div class="flow__node"><span class="n">07</span><span class="t">Booked</span><span class="d">Written once to the field-service platform</span></div></div><figcaption class="flow__cap">Every step degrades to a usable state rather than failing to a blank screen.</figcaption></figure>
+  </div>
+</section>
 
-  <!-- ===================== RESULTS ===================== -->
-  <section class="section--panel">
-    <div class="wrap">
-      <div class="section__head">
-        <p class="eyebrow">Results and impact</p>
-        <h2>Measured on real traffic, not a demo.</h2>
-      </div>
-
-      <!-- IMAGE SLOT 7: results dashboard, rendered in CSS, no screenshot needed -->
-      <div class="tiles">
-        <div class="tile"><div class="num">48+</div><div class="lab">Days live in production, zero outages</div></div>
-        <div class="tile"><div class="num">65 to 70%</div><div class="lab">Lower daily running cost</div></div>
-        <div class="tile"><div class="num">Five-figure</div><div class="lab">Saved per year on the messaging plan</div></div>
-        <div class="tile"><div class="num">Thousands</div><div class="lab">Real past messages grounding the rep's voice</div></div>
-        <div class="tile"><div class="num">43%</div><div class="lab">Lower cost per draft from routing and caching</div></div>
-        <div class="tile"><div class="num">3</div><div class="lab">Drafts ready per inbound message, instant</div></div>
-        <div class="tile"><div class="num">0</div><div class="lab">Auto-sends. A human reviews every reply</div></div>
-        <div class="tile"><div class="num">~7 wks</div><div class="lab">From kickoff to a live, daily-used system</div></div>
-      </div>
-
-      <!-- IMAGE SLOT 4: cost reduction chart, rendered in CSS from the real numbers -->
-      <figure class="chart">
-        <div class="chart__row">
-          <span class="chart__lab">Before</span>
-          <div class="chart__track">
-            <div class="chart__bar chart__bar--before"><span>Before</span></div>
-          </div>
-        </div>
-        <div class="chart__row">
-          <span class="chart__lab">After</span>
-          <div class="chart__track">
-            <div class="chart__bar chart__bar--after"><span>After</span></div>
-          </div>
-        </div>
-        <p class="chart__foot">Daily running cost down ~65 to 70%, plus ~43% lower per draft. No loss of quality or speed.</p>
-        <figcaption style="margin-top:14px">
-          <span>Running cost down ~65 to 70%, measured on real traffic, with no loss of quality.</span>
-        </figcaption>
-      </figure>
-
-      <div class="grid-2" style="margin-top:26px">
-        <div class="band">
-          <span class="k">Production note</span>
-          <p>When a third-party memory database had a brief outage, it was caught and fully restored the same day, with no customer impact, and the system caught up on everything it missed.</p>
-        </div>
-        <div class="band">
-          <span class="k">Facts, not guesses</span>
-          <p>The assistant quotes the customer's real estimate and recent-call context, never a made-up price. Auto-drafted estimates are reviewed by the rep before anything is sent.</p>
-        </div>
-      </div>
-
-      <div class="band band--accent">
-        <span class="k">Scope vs effort</span>
-        <p>One operator, working with AI augmentation, delivered the scope a 5 to 6 person development team would typically take 4 to 6 months to ship.</p>
-      </div>
-
-
-</div>
-  </section>
-
-  <!-- ===================== WHAT IT DEMONSTRATES ===================== -->
-  <section>
-    <div class="wrap">
-      <div class="section__head">
-        <p class="eyebrow">What it demonstrates</p>
-        <h2>The skills behind the system.</h2>
-      </div>
-      <div class="tags">
-        <span>Human-in-the-loop AI product design</span>
-        <span>Retrieval-augmented generation on a private corpus</span>
-        <span>Multi-agent / per-persona systems</span>
-        <span>Prompt engineering</span>
-        <span>Safety and escalation guardrails</span>
-        <span>Latency engineering: pre-generation + caching</span>
-        <span>LLM cost optimization</span>
-        <span>Browser-extension integration</span>
-        <span>Workflow-automation integration</span>
-        <span>Production operations: monitoring, incident response</span>
-        <span>Continuous learning pipelines</span>
-        <span>Turning a messy sales operation into a shipped, daily-used system</span>
-      </div>
+<section>
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">The phased build</p>
+      <h2>Engine first, interface second, honesty about travel time third.</h2>
+      
     </div>
-  </section>
+    <div class="timeline"><div class="phase"><div class="phase__num">1</div><h3>The decision engine, standalone <span class="tag">Built before any interface</span></h3><p>The routing logic was built and versioned as its own service before a panel existed, so the decision layer could be tested against real historical bookings rather than against opinion.</p></div><div class="phase"><div class="phase__num">2</div><h3>Inside the tool they already use <span class="tag">No new login</span></h3><p>Delivered as a panel within the field-service platform. No second screen, no extra sign-in, and no change to how a call is handled. Adoption problems are usually interface problems.</p></div><div class="phase"><div class="phase__num">3</div><h3>Travel time, honestly</h3><p>Radius-based assumptions were replaced with live driving distance and crew position. That is the difference between a window that sounds right in a meeting and one that holds on a Tuesday afternoon.</p></div><div class="phase"><div class="phase__num">4</div><h3>Refusal and graceful degradation</h3><p>Added the stated no for out-of-scope work, and the reduced-but-bookable fallback for when a dependency is slow. Both exist because trust is lost faster than it is built.</p></div><div class="phase"><div class="phase__num">5</div><h3>Tuning against real days <span class="tag">Current phase</span></h3><p>The engine is now scored against how an expert dispatcher actually schedules an ordinary day, captured by a companion system described in the <a href="ai-dispatch-understudy.html">Dispatch Understudy</a> case study.</p></div></div>
+  </div>
+</section>
 
-  <!-- ===================== OUTCOME / NEXT ===================== -->
-  <section class="section--panel outcome">
-    <div class="wrap">
-      <p class="eyebrow">Outcome and what is next</p>
-      <h2>Live, expanding, and the first of several.</h2>
-      <p>
-        The system is live and expanding from the first department to every line of business, with
-        auto-drafted estimates and continuous learning. It is the first of several AI initiatives in
-        the engagement.
-      </p>
+<section class="section--panel">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">Results and design commitments</p>
+      <h2>Live, in tuning, and measured against real scheduling behaviour.</h2>
+      
     </div>
-  </section>
+    <div class="tiles"><div class="tile"><div class="num">Live</div><div class="lab">In production, in active tuning</div></div><div class="tile"><div class="num">1 click</div><div class="lab">From live call to booked job</div></div><div class="tile"><div class="num">0</div><div class="lab">Blank screens. Every path returns a usable panel</div></div><div class="tile"><div class="num">0</div><div class="lab">Downtime on engine deploys, by design</div></div><div class="tile"><div class="num">Live roads</div><div class="lab">Arrival windows from real driving distance</div></div><div class="tile"><div class="num">Stated</div><div class="lab">Reason given whenever work is declined</div></div><div class="tile"><div class="num">1 write</div><div class="lab">Booking written once. No double entry</div></div><div class="tile"><div class="num">Explainable</div><div class="lab">Every offer records why it was made</div></div></div><div class="grid-2" style="margin-top:26px"><div class="band"><span class="k">Why refusal is a feature</span><p>A system that books work it cannot serve creates a cancellation, a wasted truck roll, and a customer who stops believing the next arrival window. Declining on the call, with the reason shown, is cheaper than all three.</p></div><div class="band"><span class="k">The hard constraint</span><p>The panel must never be the reason a call goes quiet. Every external call carries a timeout and a fallback, so a slow third party degrades one panel instead of stalling the dispatcher mid-conversation.</p></div></div><div class="band band--accent"><span class="k">What actually changed</span><p>A scheduling decision that used to depend on one person's memory is now a repeatable, explainable, one-click booking made while the customer is still on the line. The expertise did not leave the building when its owner went on leave.</p></div>
+  </div>
+</section>
 
+<section>
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">What it demonstrates</p>
+      <h2>The skills behind the system.</h2>
+      
+    </div>
+    <div class="tags"><span>Real-time decision support under time pressure</span><span>Constraint-based scheduling</span><span>Geospatial routing and travel-time estimation</span><span>Versioned rules engines</span><span>Zero-downtime deployment</span><span>Browser-extension integration (Manifest V3)</span><span>Telephony integration</span><span>Field-service platform integration</span><span>Graceful degradation and fallback design</span><span>Human-in-the-loop booking</span><span>Explainable automated decisions</span><span>Encoding expert judgment as reviewable rules</span></div>
+  </div>
+</section>
+
+<section class="section--panel outcome">
+  <div class="wrap">
+    <p class="eyebrow">Outcome and what is next</p>
+    <h2>Live, in tuning, scored against the expert.</h2>
+    <p>The engine is live and in tuning. It is scored against real dispatch behaviour rather than against itself, which is the only honest way to know whether an automated scheduler is any good. The scoring set comes from the companion capture system, and the rules it produces feed straight back into this panel.</p>
+  </div>
+</section>
 </main>
 
-<!-- ===================== FOOTER ===================== -->
 <section class="legal">
   <div class="wrap">
     <h4>Confidentiality and intellectual property</h4>

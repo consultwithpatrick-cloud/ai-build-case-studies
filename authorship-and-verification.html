@@ -1,16 +1,18 @@
 <!--
-  Portfolio case study: AI SMS Sales Assistant for a Home-Services Company
+  Portfolio case study: Authorship, Provenance, and Verification
   Built by Patrick Joseph Panuncillon, Director for AI Strategy and Growth.
   Self-contained: inline CSS only, system fonts, no external requests, works offline.
   Client and vendors anonymized per engagement confidentiality. No em dashes.
 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI SMS Sales Assistant, Case Study | Patrick Joseph Panuncillon</title>
-<meta name="description" content="A human-in-the-loop AI assistant that drafts on-brand text replies inside a home-services team's existing SMS platform. 48+ days live, zero outages, run cost down 65 to 70 percent.">
+<title>Authorship, Provenance, and Verification | Patrick Joseph Panuncillon</title>
+<meta name="description" content="What this portfolio claims and does not claim, the build ledger, four tiers of independent verification, and the fixed disclosure standard every page is written to.">
+<meta name="author" content="Patrick Joseph Panuncillon">
+<meta name="robots" content="index, follow">
 
 <style>
-  :root {
+:root {
     /* Cool, teal-biased neutrals so the palette reads as chosen, not defaulted. */
     --ink:        #14201e;
     --ink-2:      #44534f;
@@ -475,6 +477,7 @@
 
 <nav class="topnav"><div class="wrap">
 <a href="index.html" class="home">All builds</a>
+<a href="ai-sms-sales-assistant.html">Reply assistant</a>
 <a href="ai-reply-training-console.html">Training console</a>
 <a href="ai-call-dispatch-assistant.html">Dispatch assistant</a>
 <a href="ai-dispatch-understudy.html">Understudy</a>
@@ -482,275 +485,134 @@
 <a href="ai-invoice-automation.html">Invoicing</a>
 <a href="production-reliability-layer.html">Reliability</a>
 <a href="ai-search-reputation-lifecycle.html">Search and lifecycle</a>
-<a href="authorship-and-verification.html">Authorship</a>
 </div></nav>
 
-<!-- ===================== HERO ===================== -->
 <header class="hero">
   <div class="wrap">
     <div class="hero__status">
-      <span><span class="dot"></span>Production system</span>
-      <span>Case study</span>
-      <span>48+ days live</span>
-      <span>Zero outages</span>
+      <span><span class="dot"></span>Provenance record</span>
+      <span>Authorship, not ownership</span><span>Timestamped by commit history</span><span>Verifiable on request</span>
     </div>
-
-    <h1>AI SMS Sales Assistant for a Home-Services Company</h1>
-
-    <p class="hero__oneliner">
-      A human-in-the-loop AI assistant that drafts on-brand text replies inside the team's
-      existing SMS platform, grounded in the company's own conversation history, so reps answer
-      leads in seconds instead of minutes, without losing their voice.
-    </p>
-
-    <div class="chips">
-      <span class="chip"><b>48+</b><span>days live, zero outages</span></span>
-      <span class="chip"><b>65 to 70%</b><span>lower daily run cost</span></span>
-      <span class="chip"><b>Five-figure</b><span>annual plan savings</span></span>
-      <span class="chip"><b>~7 wks</b><span>kickoff to production</span></span>
-    </div>
-
+    <h1>Authorship, Provenance, and Verification</h1>
+    <p class="hero__oneliner">What this portfolio claims, what it deliberately does not claim, how each claim can be independently checked, and exactly what is withheld from every page and why.</p>
+    <div class="chips"><span class="chip"><b>Authorship</b><span>claimed and evidenced</span></span><span class="chip"><b>Ownership</b><span>explicitly not claimed</span></span><span class="chip"><b>4 tiers</b><span>of independent verification</span></span><span class="chip"><b>10</b><span>categories withheld without exception</span></span></div>
     <p class="byline">
       Built by <strong>Patrick Joseph Panuncillon</strong>, Director for AI Strategy and Growth.
-      Designed, built, shipped, and operated by one builder with AI augmentation.
+      This page is the disclosure standard the rest of the repository is written to.
     </p>
-
-
-</div>
+  </div>
 </header>
-
 <main>
-
-  <!-- ===================== PROBLEM ===================== -->
-  <section class="section--panel">
-    <div class="wrap">
-      <div class="section__head">
-        <p class="eyebrow">The problem</p>
-        <h2>Speed-to-lead was leaking deals, one text at a time.</h2>
-      </div>
-      <ul class="plist">
-        <li>Sales reps get a flood of inbound customer texts across many market inboxes. The speed-to-lead window is short, and slow replies lose deals.</li>
-        <li>Every reply was typed from scratch. Quality and voice were inconsistent, and high-volume or after-hours periods meant missed or delayed responses.</li>
-        <li>Off-the-shelf AI reply tools sound generic. They do not know this company's pricing, promotions, financing options, or how this team actually talks.</li>
-      </ul>
+<section>
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">What this record is</p>
+      <h2>A record of authorship. Not a claim of ownership.</h2>
+      
     </div>
-  </section>
+    <div class="prose"><p>This repository states which systems I personally designed, built, shipped, and operate. It is timestamped by the commit history of the repository itself, which is a public, append-only record under an account in my name.</p><p>It is not a claim of ownership, and it should not be read as one. Systems built in the course of an employment or client engagement belong to that employer or client. Intellectual property in every system described in this repository rests with the organisation that commissioned it, and nothing here transfers, licenses, or offers any part of it.</p><p>What is mine is the architectural judgment, the engineering, the operating discipline, and this account of it. That is the claim, and it is the claim a hiring manager or a client actually needs evaluated.</p></div><div class="note"><span class="k">The distinction that governs this repository</span>Authorship is who built it. Ownership is who holds the rights in it. These pages assert the first and expressly disclaim the second.</div>
+  </div>
+</section>
 
-  <!-- ===================== SOLUTION ===================== -->
-  <section>
-    <div class="wrap">
-      <div class="section__head">
-        <p class="eyebrow">The solution</p>
-        <h2>AI drafts, a human always sends.</h2>
-      </div>
-      <div class="prose">
-        <p>
-          A browser-based AI assistant lives inside the rep's existing SMS tool. The moment a
-          customer texts, it generates three ready-to-send reply drafts in the rep's own voice.
-          The rep edits if needed and sends with one click.
-        </p>
-        <p>
-          Nothing is ever sent automatically. A person is always in the loop, and the drafting
-          model is Claude. High-risk messages, such as safety, legal, billing disputes, or a
-          request for a manager, are detected and escalated to a team channel instead of being
-          auto-drafted.
-        </p>
-      </div>
-      <div class="note">
-        <span class="k">The trust model</span>
-        Context in, three smart drafts out, a human reviews and sends. The customer experience stays
-        personal, and the assistant never invents a price.
-      </div>
+<section>
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">The claim, stated precisely</p>
+      <h2>Both halves matter. The second half is the load-bearing one.</h2>
+      
     </div>
-  </section>
+    <div class="dl"><div class="dl__col"><h3>What I claim</h3><ul class="dl--yes"><li>I was the sole architect and builder of each system in the ledger below, working with AI assistance and without a development agency or contracted engineering team.</li><li>I designed the system, wrote the implementation, deployed it, and operate it in production.</li><li>These write-ups are my own account of my own work, in my own words.</li><li>Figures quoted are measured, or rounded down and banded from measured values. None is estimated upward, and none is projected.</li><li>Where a system is not yet live, the page says so in the first screen, in the status line, and in the ledger.</li></ul></div><div class="dl__col dl__col--no"><h3>What I do not claim</h3><ul class="dl--no"><li>I do not claim ownership of, or any rights in, any system built under an employment or client engagement.</li><li>I do not claim these pages are endorsed by, authorised by, or published on behalf of any employer or client. They are published in a personal capacity.</li><li>I do not claim credit for work done by anyone else. No such work is described here.</li><li>I do not present scoped, specified, or in-build work as shipped.</li><li>I do not offer any system described here for licence, sale, reuse, or reproduction.</li></ul></div></div>
+  </div>
+</section>
 
-  <!-- ===================== HOW IT WORKS ===================== -->
-  <section class="section--panel">
-    <div class="wrap">
-      <div class="section__head">
-        <p class="eyebrow">How it works</p>
-        <h2>Eight capabilities behind every draft.</h2>
-        <p class="lede">Described at the capability level: what each part does and why it matters.</p>
-      </div>
-
-      <div class="cards">
-        <div class="card">
-          <h3><span class="ix">RAG</span>Grounded in the company's own data</h3>
-          <p>Every draft is informed by the team's real past conversations, retrieved on the fly from a managed vector database, so replies match how this team actually writes and what it offers.</p>
-        </div>
-        <div class="card">
-          <h3><span class="ix">Voices</span>Per-department assistants</h3>
-          <p>Separate, purpose-built assistants for each line of business, sales, service, electrical, and more, each grounded in its own history and operating playbook. Not a one-size-fits-all bot.</p>
-        </div>
-        <div class="card">
-          <h3><span class="ix">Latency</span>Instant, zero-wait drafts</h3>
-          <p>A pre-generation layer prepares the reply the instant a message arrives, so the draft is waiting before the rep opens the chat. No ten-second spinner.</p>
-        </div>
-        <div class="card">
-          <h3><span class="ix">Context</span>Customer-aware</h3>
-          <p>The assistant references the customer's real quote and what was discussed on a recent phone call, so the text picks up where the last touch left off, and it never invents a price.</p>
-        </div>
-        <div class="card">
-          <h3><span class="ix">Sell</span>Consultative, not an order-taker</h3>
-          <p>Drafts acknowledge the customer, answer the question, ask a smart follow-up, and push to a call when a deal needs a human touch.</p>
-        </div>
-        <div class="card">
-          <h3><span class="ix">Estimate</span>Rep-in-loop auto-estimates</h3>
-          <p>From a conversation, the assistant can draft a real estimate. The rep enters or accepts AI-suggested details and creates it, with identity fields auto-filled from the lead record.</p>
-        </div>
-        <div class="card">
-          <h3><span class="ix">Learn</span>Always learning</h3>
-          <p>A nightly process feeds new real conversations back into the system, including the replies reps actually sent, so it keeps sounding more like the team over time.</p>
-        </div>
-        <div class="card">
-          <h3><span class="ix">Cost</span>Cost-controlled by design</h3>
-          <p>A routing layer skips junk messages, uses a cheaper model for simple replies and the top model for substantive ones, and caches the heavy shared context to keep running cost low.</p>
-        </div>
-      </div>
-
-
-
-</div>
-  </section>
-
-  <!-- ===================== PHASED BUILD ===================== -->
-  <section>
-    <div class="wrap">
-      <div class="section__head">
-        <p class="eyebrow">The phased build</p>
-        <h2>Shipped in phases, each one answering something the team actually needed.</h2>
-      </div>
-
-      <div class="timeline">
-        <div class="phase">
-          <div class="phase__num">1</div>
-          <h3>Proof of concept <span class="tag">Live, used daily</span></h3>
-          <p>A message comes in, the AI returns three drafts in the panel. Simple, but real, and in a rep's hands fast on live customers.</p>
-        </div>
-        <div class="phase">
-          <div class="phase__num">2</div>
-          <h3>The redesign that made it stick <span class="tag">A deliberate half-step</span></h3>
-          <p>The first rep said the panel blocked his screen, so it was rebuilt to float, drag, and resize. That turned "I tried it" into "I use it every day."</p>
-        </div>
-        <div class="phase">
-          <div class="phase__num">3</div>
-          <h3>Voice and efficiency</h3>
-          <p>Grounded the drafts in thousands of the rep's real past messages, added caching to cut cost, a nightly learning sync, and an alert-the-team path for anything unfamiliar instead of guessing.</p>
-        </div>
-        <div class="phase">
-          <div class="phase__num">4</div>
-          <h3>Facts and consultative tone</h3>
-          <p>Real estimate prices, recent-call context, a consultative rewrite, and the instant pre-generation that removed the wait.</p>
-        </div>
-        <div class="phase">
-          <div class="phase__num">5</div>
-          <h3>Auto-estimates and multi-department rollout</h3>
-          <p>Rep-in-loop estimate creation, plus purpose-built assistants cloned per department, each in its own voice.</p>
-        </div>
-      </div>
+<section class="section--panel">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">The build ledger</p>
+      <h2>Eight systems and programmes, with role and status stated plainly.</h2>
+      
     </div>
-  </section>
+    <div class="tablewrap"><table class="ledger"><thead><tr><th>System</th><th>What it is</th><th>My role</th><th>Status</th><th>Documented</th></tr></thead><tbody><tr><td><strong><a href="ai-sms-sales-assistant.html">AI Reply Assistant</a></strong></td><td>Retrieval-grounded drafting</td><td>Sole architect and builder</td><td class="st"><b>Live, in daily production</b></td><td class="st">2026-08-16</td></tr><tr><td><strong><a href="ai-reply-training-console.html">Reply Training Console</a></strong></td><td>Per-department voice training</td><td>Sole architect and builder</td><td class="st"><b>Live</b></td><td class="st">2026-08-16</td></tr><tr><td><strong><a href="ai-call-dispatch-assistant.html">Call-Time Dispatch Assistant</a></strong></td><td>Constraint-based booking</td><td>Sole architect and builder</td><td class="st"><b>Live, in tuning</b></td><td class="st">2026-08-16</td></tr><tr><td><strong><a href="ai-dispatch-understudy.html">Dispatch Understudy</a></strong></td><td>Expertise capture to rules</td><td>Sole architect and builder</td><td class="st"><b>Live, capturing</b></td><td class="st">2026-08-16</td></tr><tr><td><strong><a href="ai-campaign-automation.html">Campaign Automation</a></strong></td><td>Gated self-serve campaigns</td><td>Sole architect and builder</td><td class="st"><b>In build</b></td><td class="st">2026-08-16</td></tr><tr><td><strong><a href="ai-invoice-automation.html">Invoice Automation</a></strong></td><td>Deterministic drafting</td><td>Sole architect and builder</td><td class="st"><b>In build, in diagnosis</b></td><td class="st">2026-08-16</td></tr><tr><td><strong><a href="production-reliability-layer.html">Production Reliability Layer</a></strong></td><td>Observability and recovery</td><td>Sole architect and builder</td><td class="st"><b>Live, under all of the above</b></td><td class="st">2026-08-16</td></tr><tr><td><strong><a href="ai-search-reputation-lifecycle.html">Search, Review, Lifecycle</a></strong></td><td>AEO, reviews, CRM</td><td>Programme owner and builder</td><td class="st"><b>Live. Voice agents scoped only</b></td><td class="st">2026-08-16</td></tr></tbody></table></div><div class="band"><span class="k">On the Documented column</span><p>The documented date is the date the write-up was committed to this public repository. It is not the date the system went live. Where a go-live date matters to you, ask and I will give it to you directly rather than assert it here without evidence you can check.</p></div><div class="band band--accent"><span class="k">On status labels</span><p>Live means running in production and in daily use. In tuning means live and being scored against real behaviour. In build means implemented but not yet in production. Scoped means specified and not built. These labels are used consistently and are the single easiest thing to check in a walkthrough, which is precisely why they are accurate.</p></div>
+  </div>
+</section>
 
-  <!-- ===================== RESULTS ===================== -->
-  <section class="section--panel">
-    <div class="wrap">
-      <div class="section__head">
-        <p class="eyebrow">Results and impact</p>
-        <h2>Measured on real traffic, not a demo.</h2>
-      </div>
-
-      <!-- IMAGE SLOT 7: results dashboard, rendered in CSS, no screenshot needed -->
-      <div class="tiles">
-        <div class="tile"><div class="num">48+</div><div class="lab">Days live in production, zero outages</div></div>
-        <div class="tile"><div class="num">65 to 70%</div><div class="lab">Lower daily running cost</div></div>
-        <div class="tile"><div class="num">Five-figure</div><div class="lab">Saved per year on the messaging plan</div></div>
-        <div class="tile"><div class="num">Thousands</div><div class="lab">Real past messages grounding the rep's voice</div></div>
-        <div class="tile"><div class="num">43%</div><div class="lab">Lower cost per draft from routing and caching</div></div>
-        <div class="tile"><div class="num">3</div><div class="lab">Drafts ready per inbound message, instant</div></div>
-        <div class="tile"><div class="num">0</div><div class="lab">Auto-sends. A human reviews every reply</div></div>
-        <div class="tile"><div class="num">~7 wks</div><div class="lab">From kickoff to a live, daily-used system</div></div>
-      </div>
-
-      <!-- IMAGE SLOT 4: cost reduction chart, rendered in CSS from the real numbers -->
-      <figure class="chart">
-        <div class="chart__row">
-          <span class="chart__lab">Before</span>
-          <div class="chart__track">
-            <div class="chart__bar chart__bar--before"><span>Before</span></div>
-          </div>
-        </div>
-        <div class="chart__row">
-          <span class="chart__lab">After</span>
-          <div class="chart__track">
-            <div class="chart__bar chart__bar--after"><span>After</span></div>
-          </div>
-        </div>
-        <p class="chart__foot">Daily running cost down ~65 to 70%, plus ~43% lower per draft. No loss of quality or speed.</p>
-        <figcaption style="margin-top:14px">
-          <span>Running cost down ~65 to 70%, measured on real traffic, with no loss of quality.</span>
-        </figcaption>
-      </figure>
-
-      <div class="grid-2" style="margin-top:26px">
-        <div class="band">
-          <span class="k">Production note</span>
-          <p>When a third-party memory database had a brief outage, it was caught and fully restored the same day, with no customer impact, and the system caught up on everything it missed.</p>
-        </div>
-        <div class="band">
-          <span class="k">Facts, not guesses</span>
-          <p>The assistant quotes the customer's real estimate and recent-call context, never a made-up price. Auto-drafted estimates are reviewed by the rep before anything is sent.</p>
-        </div>
-      </div>
-
-      <div class="band band--accent">
-        <span class="k">Scope vs effort</span>
-        <p>One operator, working with AI augmentation, delivered the scope a 5 to 6 person development team would typically take 4 to 6 months to ship.</p>
-      </div>
-
-
-</div>
-  </section>
-
-  <!-- ===================== WHAT IT DEMONSTRATES ===================== -->
-  <section>
-    <div class="wrap">
-      <div class="section__head">
-        <p class="eyebrow">What it demonstrates</p>
-        <h2>The skills behind the system.</h2>
-      </div>
-      <div class="tags">
-        <span>Human-in-the-loop AI product design</span>
-        <span>Retrieval-augmented generation on a private corpus</span>
-        <span>Multi-agent / per-persona systems</span>
-        <span>Prompt engineering</span>
-        <span>Safety and escalation guardrails</span>
-        <span>Latency engineering: pre-generation + caching</span>
-        <span>LLM cost optimization</span>
-        <span>Browser-extension integration</span>
-        <span>Workflow-automation integration</span>
-        <span>Production operations: monitoring, incident response</span>
-        <span>Continuous learning pipelines</span>
-        <span>Turning a messy sales operation into a shipped, daily-used system</span>
-      </div>
+<section>
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">How to verify any of this</p>
+      <h2>Four tiers, increasing in strength. The strongest is available on request.</h2>
+      
     </div>
-  </section>
+    
+<ol class="steps">
+  <li><strong>Timestamp: this repository's commit history</strong>
+  Every page here was committed to a public repository under an account in my name, on a recorded
+  date. Commit history is append-only and cannot be silently backdated without leaving evidence in
+  the repository. This establishes when each claim was made, which is the foundation everything
+  else rests on.</li>
 
-  <!-- ===================== OUTCOME / NEXT ===================== -->
-  <section class="section--panel outcome">
-    <div class="wrap">
-      <p class="eyebrow">Outcome and what is next</p>
-      <h2>Live, expanding, and the first of several.</h2>
-      <p>
-        The system is live and expanding from the first department to every line of business, with
-        auto-drafted estimates and continuous learning. It is the first of several AI initiatives in
-        the engagement.
-      </p>
+  <li><strong>Corroboration: independent surfaces maintained over time</strong>
+  The same claims appear, in the same terms, on surfaces I maintain separately and publicly: my
+  LinkedIn profile, my CV, and my public GitHub account. Consistency held across independent
+  surfaces over months is considerably harder to manufacture than any single document, and
+  inconsistency between them would be trivial to spot.</li>
+
+  <li><strong>Demonstration: a live walkthrough</strong>
+  I will demonstrate the running systems on a screen share, on request, subject to the
+  confidentiality obligations that govern them. This is the strongest proof available and it is
+  offered to any serious party. Someone who did not build a system cannot narrate its edge cases,
+  its failure modes, or the reason a particular decision was made the way it was.</li>
+
+  <li><strong>Reference: people who were there</strong>
+  Named references who supervised the engagement or worked alongside it can be provided on request.
+  They can confirm scope, role, and delivery directly, without me in the middle of it.</li>
+</ol>
+<div class="band band--accent"><span class="k">Why this page exists at all</span><p>Anonymized case studies are, by construction, unverifiable on their face. Removing the client name removes the reader's ability to check. The honest response is not to name the client anyway. It is to say clearly what is being claimed, what is not, and exactly how a serious reader can satisfy themselves privately.</p></div>
+  </div>
+</section>
+
+<section class="section--panel">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">What is withheld, and why</p>
+      <h2>Every page in this repository is written to one fixed disclosure standard.</h2>
+      
     </div>
-  </section>
+    <div class="prose"><p>The following are withheld from every page in this repository, without exception, regardless of how much they would strengthen a claim:</p></div><ul class="withheld"><li>The name of the employer or client, and any detail sufficient to identify them</li><li>Source code, in whole or in part</li><li>Prompts, prompt templates, and system instructions</li><li>Credentials, keys, tokens, endpoints, hostnames, and internal identifiers</li><li>Schemas, data models, and internal record structures</li><li>Customer data of any kind, in any form, including anonymised or composited</li><li>Named third-party vendors in the client's operational stack</li><li>Exact commercial figures, contract terms, and pricing</li><li>Screenshots or recordings of live systems</li><li>Any material subject to a confidentiality obligation</li></ul><div class="prose"><p>Figures that do appear are rounded, banded, or expressed as ranges, and are included only where the band itself carries no confidential information. Where an honest description of a result would require a confidential figure, the result is omitted rather than approximated into something that misleads.</p><p>Third-party vendors in a client's operational stack are described by category, such as a managed vector database or a field-service platform, rather than by name. A company's tooling choices are its own information to disclose.</p></div><div class="band"><span class="k">Screenshots specifically</span><p>Screenshots of live systems are not published in this repository. A screenshot is the single highest-risk artefact in a portfolio: it carries customer names, phone numbers, message contents, internal identifiers, and vendor branding, and blurring is routinely insufficient. Every diagram in this repository is drawn in CSS from public description, so there is nothing in it that could have leaked.</p></div>
+  </div>
+</section>
 
+<section>
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">Method statement</p>
+      <h2>One person, AI augmented, no agency, no inherited codebase.</h2>
+      
+    </div>
+    <div class="prose"><p>Every system listed was designed and built by one person working with AI assistance. There was no development agency, no contracted engineering team, and no inherited codebase to extend.</p><p>I state the AI assistance plainly, here and on my CV, because the claim I am making is about architectural judgment, scoping, delivery, and operations, not about keystrokes. Anyone evaluating me should evaluate the decisions: where the model was allowed and where it was structurally excluded, what fails closed, what degrades, what a person still has to approve, and what happens at three in the morning when a third party goes down.</p></div><div class="band band--accent"><span class="k">The thing worth checking</span><p>The distinguishing work in this portfolio is not that AI systems were built. It is where the boundaries were drawn: a model that never touches a total, a capture tool that cannot be repurposed into surveillance, a form field that was removed rather than validated, and a watchdog that does not trust a job to report on itself. Those are the decisions to interrogate.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">Corrections and takedown</p>
+      <h2>A standing commitment, not a disclaimer.</h2>
+      
+    </div>
+    <div class="prose"><p>If anything in this repository is inaccurate, or if a rights holder considers any part of it to exceed the disclosure standard set out above, contact me and it will be corrected or removed promptly. No dispute process is required and none will be raised.</p><p>Contact: <a href="mailto:consultwithpatrick@gmail.com">consultwithpatrick@gmail.com</a></p></div>
+  </div>
+</section>
+
+<section class="section--panel outcome">
+  <div class="wrap">
+    <p class="eyebrow">In summary</p>
+    <h2>Authorship claimed, ownership disclaimed, verification offered.</h2>
+    <p>This repository records what I built, states plainly that I do not own it, withholds everything that belongs to the organisations that commissioned it, and offers a live demonstration to anyone who needs more than my word. That is the strongest honest position available for anonymized work, and it is the one I have taken.</p>
+  </div>
+</section>
 </main>
 
-<!-- ===================== FOOTER ===================== -->
 <section class="legal">
   <div class="wrap">
     <h4>Confidentiality and intellectual property</h4>

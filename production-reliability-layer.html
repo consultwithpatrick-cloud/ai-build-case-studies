@@ -1,16 +1,18 @@
 <!--
-  Portfolio case study: AI SMS Sales Assistant for a Home-Services Company
+  Portfolio case study: Production Reliability Layer, Case Study
   Built by Patrick Joseph Panuncillon, Director for AI Strategy and Growth.
   Self-contained: inline CSS only, system fonts, no external requests, works offline.
   Client and vendors anonymized per engagement confidentiality. No em dashes.
 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI SMS Sales Assistant, Case Study | Patrick Joseph Panuncillon</title>
-<meta name="description" content="A human-in-the-loop AI assistant that drafts on-brand text replies inside a home-services team's existing SMS platform. 48+ days live, zero outages, run cost down 65 to 70 percent.">
+<title>Production Reliability Layer, Case Study | Patrick Joseph Panuncillon</title>
+<meta name="description" content="Twenty-eight unattended automation workflows where health is proven by fresh dated output, an independent watchdog runs twice daily, silence raises an alarm, and recovery backfills the gap.">
+<meta name="author" content="Patrick Joseph Panuncillon">
+<meta name="robots" content="index, follow">
 
 <style>
-  :root {
+:root {
     /* Cool, teal-biased neutrals so the palette reads as chosen, not defaulted. */
     --ink:        #14201e;
     --ink-2:      #44534f;
@@ -475,282 +477,96 @@
 
 <nav class="topnav"><div class="wrap">
 <a href="index.html" class="home">All builds</a>
+<a href="ai-sms-sales-assistant.html">Reply assistant</a>
 <a href="ai-reply-training-console.html">Training console</a>
 <a href="ai-call-dispatch-assistant.html">Dispatch assistant</a>
 <a href="ai-dispatch-understudy.html">Understudy</a>
 <a href="ai-campaign-automation.html">Campaigns</a>
 <a href="ai-invoice-automation.html">Invoicing</a>
-<a href="production-reliability-layer.html">Reliability</a>
 <a href="ai-search-reputation-lifecycle.html">Search and lifecycle</a>
 <a href="authorship-and-verification.html">Authorship</a>
 </div></nav>
 
-<!-- ===================== HERO ===================== -->
 <header class="hero">
   <div class="wrap">
     <div class="hero__status">
       <span><span class="dot"></span>Production system</span>
-      <span>Case study</span>
-      <span>48+ days live</span>
-      <span>Zero outages</span>
+      <span>Case study</span><span>Live under all six systems</span><span>Unattended operations</span>
     </div>
-
-    <h1>AI SMS Sales Assistant for a Home-Services Company</h1>
-
-    <p class="hero__oneliner">
-      A human-in-the-loop AI assistant that drafts on-brand text replies inside the team's
-      existing SMS platform, grounded in the company's own conversation history, so reps answer
-      leads in seconds instead of minutes, without losing their voice.
-    </p>
-
-    <div class="chips">
-      <span class="chip"><b>48+</b><span>days live, zero outages</span></span>
-      <span class="chip"><b>65 to 70%</b><span>lower daily run cost</span></span>
-      <span class="chip"><b>Five-figure</b><span>annual plan savings</span></span>
-      <span class="chip"><b>~7 wks</b><span>kickoff to production</span></span>
-    </div>
-
+    <h1>The Reliability Layer Under a Production AI Stack</h1>
+    <p class="hero__oneliner">Twenty-eight automation workflows running unattended on a real business, where health is proven by fresh output rather than asserted by an exit code, and silence is treated as a failure. This is the half of AI work that does not demo well and decides everything.</p>
+    <div class="chips"><span class="chip"><b>28</b><span>workflows in daily operation</span></span><span class="chip"><b>2x daily</b><span>watchdog on every job</span></span><span class="chip"><b>Proof</b><span>of output, not exit codes</span></span><span class="chip"><b>Fail closed</b><span>silence raises an alarm</span></span></div>
     <p class="byline">
       Built by <strong>Patrick Joseph Panuncillon</strong>, Director for AI Strategy and Growth.
       Designed, built, shipped, and operated by one builder with AI augmentation.
     </p>
-
-
-</div>
+  </div>
 </header>
-
 <main>
-
-  <!-- ===================== PROBLEM ===================== -->
-  <section class="section--panel">
-    <div class="wrap">
-      <div class="section__head">
-        <p class="eyebrow">The problem</p>
-        <h2>Speed-to-lead was leaking deals, one text at a time.</h2>
-      </div>
-      <ul class="plist">
-        <li>Sales reps get a flood of inbound customer texts across many market inboxes. The speed-to-lead window is short, and slow replies lose deals.</li>
-        <li>Every reply was typed from scratch. Quality and voice were inconsistent, and high-volume or after-hours periods meant missed or delayed responses.</li>
-        <li>Off-the-shelf AI reply tools sound generic. They do not know this company's pricing, promotions, financing options, or how this team actually talks.</li>
-      </ul>
+<section class="section--panel">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">The problem</p>
+      <h2>The failure mode of production automation is almost never a crash.</h2>
+      
     </div>
-  </section>
+    <ul class="plist"><li>It is a job that runs, exits zero, and quietly does nothing. For weeks. While everyone downstream assumes it is working, because it never complained.</li><li>Exit codes lie. A workflow that reached the end of its steps having written nothing is a failure that reports success, and every monitoring system that watches process status agrees with it.</li><li>Credentials expire on their own schedule. A rotating token chain that is never exercised is a chain that breaks at the worst possible moment and takes a live system down with it.</li><li>And nobody notices. That is the actual root cause of most automation outages. No model choice, framework, or vendor fixes it, which is why it is the first thing to build and usually the last thing anyone builds.</li></ul>
+  </div>
+</section>
 
-  <!-- ===================== SOLUTION ===================== -->
-  <section>
-    <div class="wrap">
-      <div class="section__head">
-        <p class="eyebrow">The solution</p>
-        <h2>AI drafts, a human always sends.</h2>
-      </div>
-      <div class="prose">
-        <p>
-          A browser-based AI assistant lives inside the rep's existing SMS tool. The moment a
-          customer texts, it generates three ready-to-send reply drafts in the rep's own voice.
-          The rep edits if needed and sends with one click.
-        </p>
-        <p>
-          Nothing is ever sent automatically. A person is always in the loop, and the drafting
-          model is Claude. High-risk messages, such as safety, legal, billing disputes, or a
-          request for a manager, are detected and escalated to a team channel instead of being
-          auto-drafted.
-        </p>
-      </div>
-      <div class="note">
-        <span class="k">The trust model</span>
-        Context in, three smart drafts out, a human reviews and sends. The customer experience stays
-        personal, and the assistant never invents a price.
-      </div>
+<section>
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">The solution</p>
+      <h2>A job proves it is alive by leaving something dated behind.</h2>
+      
     </div>
-  </section>
+    <div class="prose"><p>Every recurring job writes fresh, dateable output as a condition of being considered healthy. A watchdog runs on its own independent schedule, twice a day, and compares the age of that output against the cadence the job promised.</p><p>A job that ran but produced nothing new is treated as failed, because it is one. The absence of fresh output raises an alarm rather than passing quietly, which inverts the default assumption from success to failure. For unattended work, that is the correct default.</p></div><div class="note"><span class="k">The whole discipline in one line</span>Health is proven by output, never asserted by an exit code. A job that ran and did nothing is a failure, and treating it as one is what separates automation that survives a quarter from automation that is quietly dead by week three.</div>
+  </div>
+</section>
 
-  <!-- ===================== HOW IT WORKS ===================== -->
-  <section class="section--panel">
-    <div class="wrap">
-      <div class="section__head">
-        <p class="eyebrow">How it works</p>
-        <h2>Eight capabilities behind every draft.</h2>
-        <p class="lede">Described at the capability level: what each part does and why it matters.</p>
-      </div>
-
-      <div class="cards">
-        <div class="card">
-          <h3><span class="ix">RAG</span>Grounded in the company's own data</h3>
-          <p>Every draft is informed by the team's real past conversations, retrieved on the fly from a managed vector database, so replies match how this team actually writes and what it offers.</p>
-        </div>
-        <div class="card">
-          <h3><span class="ix">Voices</span>Per-department assistants</h3>
-          <p>Separate, purpose-built assistants for each line of business, sales, service, electrical, and more, each grounded in its own history and operating playbook. Not a one-size-fits-all bot.</p>
-        </div>
-        <div class="card">
-          <h3><span class="ix">Latency</span>Instant, zero-wait drafts</h3>
-          <p>A pre-generation layer prepares the reply the instant a message arrives, so the draft is waiting before the rep opens the chat. No ten-second spinner.</p>
-        </div>
-        <div class="card">
-          <h3><span class="ix">Context</span>Customer-aware</h3>
-          <p>The assistant references the customer's real quote and what was discussed on a recent phone call, so the text picks up where the last touch left off, and it never invents a price.</p>
-        </div>
-        <div class="card">
-          <h3><span class="ix">Sell</span>Consultative, not an order-taker</h3>
-          <p>Drafts acknowledge the customer, answer the question, ask a smart follow-up, and push to a call when a deal needs a human touch.</p>
-        </div>
-        <div class="card">
-          <h3><span class="ix">Estimate</span>Rep-in-loop auto-estimates</h3>
-          <p>From a conversation, the assistant can draft a real estimate. The rep enters or accepts AI-suggested details and creates it, with identity fields auto-filled from the lead record.</p>
-        </div>
-        <div class="card">
-          <h3><span class="ix">Learn</span>Always learning</h3>
-          <p>A nightly process feeds new real conversations back into the system, including the replies reps actually sent, so it keeps sounding more like the team over time.</p>
-        </div>
-        <div class="card">
-          <h3><span class="ix">Cost</span>Cost-controlled by design</h3>
-          <p>A routing layer skips junk messages, uses a cheaper model for simple replies and the top model for substantive ones, and caches the heavy shared context to keep running cost low.</p>
-        </div>
-      </div>
-
-
-
-</div>
-  </section>
-
-  <!-- ===================== PHASED BUILD ===================== -->
-  <section>
-    <div class="wrap">
-      <div class="section__head">
-        <p class="eyebrow">The phased build</p>
-        <h2>Shipped in phases, each one answering something the team actually needed.</h2>
-      </div>
-
-      <div class="timeline">
-        <div class="phase">
-          <div class="phase__num">1</div>
-          <h3>Proof of concept <span class="tag">Live, used daily</span></h3>
-          <p>A message comes in, the AI returns three drafts in the panel. Simple, but real, and in a rep's hands fast on live customers.</p>
-        </div>
-        <div class="phase">
-          <div class="phase__num">2</div>
-          <h3>The redesign that made it stick <span class="tag">A deliberate half-step</span></h3>
-          <p>The first rep said the panel blocked his screen, so it was rebuilt to float, drag, and resize. That turned "I tried it" into "I use it every day."</p>
-        </div>
-        <div class="phase">
-          <div class="phase__num">3</div>
-          <h3>Voice and efficiency</h3>
-          <p>Grounded the drafts in thousands of the rep's real past messages, added caching to cut cost, a nightly learning sync, and an alert-the-team path for anything unfamiliar instead of guessing.</p>
-        </div>
-        <div class="phase">
-          <div class="phase__num">4</div>
-          <h3>Facts and consultative tone</h3>
-          <p>Real estimate prices, recent-call context, a consultative rewrite, and the instant pre-generation that removed the wait.</p>
-        </div>
-        <div class="phase">
-          <div class="phase__num">5</div>
-          <h3>Auto-estimates and multi-department rollout</h3>
-          <p>Rep-in-loop estimate creation, plus purpose-built assistants cloned per department, each in its own voice.</p>
-        </div>
-      </div>
+<section>
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">How it works</p>
+      <h2>Eight practices, applied to every workflow without exception.</h2>
+      
     </div>
-  </section>
+    <div class="cards"><div class="card"><h3><span class="ix">Proof</span>Freshness, not exit codes</h3><p>Every recurring job writes output a watchdog can date. Health is the age of that output, which cannot be faked by a process that finished cleanly having done nothing.</p></div><div class="card"><h3><span class="ix">Watchdog</span>Twice a day, every job</h3><p>An independent watchdog checks each job's output age against its promised cadence. Crucially it is not the job reporting on itself, because a broken job is exactly the wrong narrator of its own condition.</p></div><div class="card"><h3><span class="ix">Alarm</span>Silence is the signal</h3><p>Absence of fresh output raises an alarm. The default assumption is failure until proven otherwise, which is the only safe posture for work nobody is watching.</p></div><div class="card"><h3><span class="ix">Credentials</span>Kept alive on purpose</h3><p>Rotating credential chains are refreshed on a schedule and then spent on a real call, so the refresh is proven to have worked rather than assumed. A token that was renewed but never used is an untested token.</p></div><div class="card"><h3><span class="ix">Timeouts</span>Every network call, no exceptions</h3><p>No external call may hang indefinitely. A slow third party degrades one job instead of stalling a queue behind it and taking unrelated systems with it.</p></div><div class="card"><h3><span class="ix">Partials</span>A good result is never overwritten by a bad one</h3><p>A partial or failed fetch does not replace a known-good result. Stale but correct beats fresh but truncated, every time, and the distinction is enforced in code.</p></div><div class="card"><h3><span class="ix">Brittleness</span>Nothing a rename can break</h3><p>Identifiers, field names, and paths are resolved at run time rather than hardcoded, so an ordinary rename upstream does not silently empty a pipeline that continues to report success.</p></div><div class="card"><h3><span class="ix">Recovery</span>Backfill is part of the design</h3><p>When an upstream dependency fails, the recovery path replays what was missed rather than leaving a permanent hole in the record and moving on.</p></div></div><figure><div class="flow"><div class="flow__node"><span class="n">01</span><span class="t">Job runs</span><span class="d">On its own schedule</span></div><span class="flow__arrow" aria-hidden="true">&#8250;</span><div class="flow__node"><span class="n">02</span><span class="t">Writes dated output</span><span class="d">Freshness is the health signal</span></div><span class="flow__arrow" aria-hidden="true">&#8250;</span><div class="flow__node flow__node--gate"><span class="n">03</span><span class="t">Watchdog reads age</span><span class="d">Independent, twice daily</span></div><span class="flow__arrow" aria-hidden="true">&#8250;</span><div class="flow__node"><span class="n">04</span><span class="t">Fresh</span><span class="d">Healthy. No action</span></div><span class="flow__arrow" aria-hidden="true">&#8250;</span><div class="flow__node flow__node--gate"><span class="n">05</span><span class="t">Stale or absent</span><span class="d">Alarm raised. Assumed failed</span></div><span class="flow__arrow" aria-hidden="true">&#8250;</span><div class="flow__node"><span class="n">06</span><span class="t">Human investigates</span><span class="d">A person, not a retry loop</span></div><span class="flow__arrow" aria-hidden="true">&#8250;</span><div class="flow__node"><span class="n">07</span><span class="t">Backfill replays</span><span class="d">The gap is filled, not skipped</span></div></div><figcaption class="flow__cap">The watchdog is deliberately separate from the jobs it watches. A broken job is the wrong narrator.</figcaption></figure>
+  </div>
+</section>
 
-  <!-- ===================== RESULTS ===================== -->
-  <section class="section--panel">
-    <div class="wrap">
-      <div class="section__head">
-        <p class="eyebrow">Results and impact</p>
-        <h2>Measured on real traffic, not a demo.</h2>
-      </div>
-
-      <!-- IMAGE SLOT 7: results dashboard, rendered in CSS, no screenshot needed -->
-      <div class="tiles">
-        <div class="tile"><div class="num">48+</div><div class="lab">Days live in production, zero outages</div></div>
-        <div class="tile"><div class="num">65 to 70%</div><div class="lab">Lower daily running cost</div></div>
-        <div class="tile"><div class="num">Five-figure</div><div class="lab">Saved per year on the messaging plan</div></div>
-        <div class="tile"><div class="num">Thousands</div><div class="lab">Real past messages grounding the rep's voice</div></div>
-        <div class="tile"><div class="num">43%</div><div class="lab">Lower cost per draft from routing and caching</div></div>
-        <div class="tile"><div class="num">3</div><div class="lab">Drafts ready per inbound message, instant</div></div>
-        <div class="tile"><div class="num">0</div><div class="lab">Auto-sends. A human reviews every reply</div></div>
-        <div class="tile"><div class="num">~7 wks</div><div class="lab">From kickoff to a live, daily-used system</div></div>
-      </div>
-
-      <!-- IMAGE SLOT 4: cost reduction chart, rendered in CSS from the real numbers -->
-      <figure class="chart">
-        <div class="chart__row">
-          <span class="chart__lab">Before</span>
-          <div class="chart__track">
-            <div class="chart__bar chart__bar--before"><span>Before</span></div>
-          </div>
-        </div>
-        <div class="chart__row">
-          <span class="chart__lab">After</span>
-          <div class="chart__track">
-            <div class="chart__bar chart__bar--after"><span>After</span></div>
-          </div>
-        </div>
-        <p class="chart__foot">Daily running cost down ~65 to 70%, plus ~43% lower per draft. No loss of quality or speed.</p>
-        <figcaption style="margin-top:14px">
-          <span>Running cost down ~65 to 70%, measured on real traffic, with no loss of quality.</span>
-        </figcaption>
-      </figure>
-
-      <div class="grid-2" style="margin-top:26px">
-        <div class="band">
-          <span class="k">Production note</span>
-          <p>When a third-party memory database had a brief outage, it was caught and fully restored the same day, with no customer impact, and the system caught up on everything it missed.</p>
-        </div>
-        <div class="band">
-          <span class="k">Facts, not guesses</span>
-          <p>The assistant quotes the customer's real estimate and recent-call context, never a made-up price. Auto-drafted estimates are reviewed by the rep before anything is sent.</p>
-        </div>
-      </div>
-
-      <div class="band band--accent">
-        <span class="k">Scope vs effort</span>
-        <p>One operator, working with AI augmentation, delivered the scope a 5 to 6 person development team would typically take 4 to 6 months to ship.</p>
-      </div>
-
-
-</div>
-  </section>
-
-  <!-- ===================== WHAT IT DEMONSTRATES ===================== -->
-  <section>
-    <div class="wrap">
-      <div class="section__head">
-        <p class="eyebrow">What it demonstrates</p>
-        <h2>The skills behind the system.</h2>
-      </div>
-      <div class="tags">
-        <span>Human-in-the-loop AI product design</span>
-        <span>Retrieval-augmented generation on a private corpus</span>
-        <span>Multi-agent / per-persona systems</span>
-        <span>Prompt engineering</span>
-        <span>Safety and escalation guardrails</span>
-        <span>Latency engineering: pre-generation + caching</span>
-        <span>LLM cost optimization</span>
-        <span>Browser-extension integration</span>
-        <span>Workflow-automation integration</span>
-        <span>Production operations: monitoring, incident response</span>
-        <span>Continuous learning pipelines</span>
-        <span>Turning a messy sales operation into a shipped, daily-used system</span>
-      </div>
+<section class="section--panel">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">Results and evidence</p>
+      <h2>Measured on a business that depends on these workflows daily.</h2>
+      
     </div>
-  </section>
+    <div class="tiles"><div class="tile"><div class="num">28</div><div class="lab">Live workflows in daily operation</div></div><div class="tile"><div class="num">2x daily</div><div class="lab">Watchdog pass over every job</div></div><div class="tile"><div class="num">0</div><div class="lab">Jobs trusted to report their own health</div></div><div class="tile"><div class="num">Same day</div><div class="lab">Third-party outage caught and fully restored</div></div><div class="tile"><div class="num">100%</div><div class="lab">Network calls carrying an explicit timeout</div></div><div class="tile"><div class="num">Backfill</div><div class="lab">Replays the gap rather than skipping it</div></div><div class="tile"><div class="num">Freshness</div><div class="lab">The single health metric, across the stack</div></div><div class="tile"><div class="num">Fail closed</div><div class="lab">Silence is treated as failure by default</div></div></div><div class="grid-2" style="margin-top:26px"><div class="band"><span class="k">The incident this was built for</span><p>A third-party vector database outage was caught and fully restored the same day, with backfill and no customer impact. The layer described on this page is the reason it was caught in hours rather than discovered in weeks by a customer.</p></div><div class="band"><span class="k">Why the watchdog is separate</span><p>Self-reporting health checks fail in exactly the situations that matter, because the component reporting is the component that is broken. An independent observer with its own schedule is the only arrangement that survives the real failure.</p></div></div><div class="band band--accent"><span class="k">The unglamorous half</span><p>Anyone can ship a demo. Keeping automation alive, unattended, on a business that depends on it, is the harder half, and it is the half that decides whether an AI programme survives its first quarter or becomes the thing nobody mentions in the second one.</p></div>
+  </div>
+</section>
 
-  <!-- ===================== OUTCOME / NEXT ===================== -->
-  <section class="section--panel outcome">
-    <div class="wrap">
-      <p class="eyebrow">Outcome and what is next</p>
-      <h2>Live, expanding, and the first of several.</h2>
-      <p>
-        The system is live and expanding from the first department to every line of business, with
-        auto-drafted estimates and continuous learning. It is the first of several AI initiatives in
-        the engagement.
-      </p>
+<section>
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">What it demonstrates</p>
+      <h2>The skills behind the system.</h2>
+      
     </div>
-  </section>
+    <div class="tags"><span>Production reliability engineering</span><span>Observability for workflow automation</span><span>Watchdog and heartbeat design</span><span>Proof-of-output health checks</span><span>Credential lifecycle management</span><span>Timeout and graceful degradation policy</span><span>Safe overwrite and partial-result rules</span><span>Backfill and replay recovery</span><span>Production incident response</span><span>Failure-mode engineering</span><span>Unattended operations at scale</span></div>
+  </div>
+</section>
 
+<section class="section--panel outcome">
+  <div class="wrap">
+    <p class="eyebrow">Outcome</p>
+    <h2>This is why the other systems are described as live.</h2>
+    <p>Twenty-eight workflows run daily on a real business with health proven by output rather than assumed from exit codes. This layer sits underneath every system in this portfolio. It is the reason those systems are described here as live and operating, rather than as launched and hoped for.</p>
+  </div>
+</section>
 </main>
 
-<!-- ===================== FOOTER ===================== -->
 <section class="legal">
   <div class="wrap">
     <h4>Confidentiality and intellectual property</h4>

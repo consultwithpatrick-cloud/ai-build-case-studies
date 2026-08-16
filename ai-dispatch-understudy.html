@@ -1,16 +1,18 @@
 <!--
-  Portfolio case study: AI SMS Sales Assistant for a Home-Services Company
+  Portfolio case study: Dispatch Understudy, Case Study
   Built by Patrick Joseph Panuncillon, Director for AI Strategy and Growth.
   Self-contained: inline CSS only, system fonts, no external requests, works offline.
   Client and vendors anonymized per engagement confidentiality. No em dashes.
 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI SMS Sales Assistant, Case Study | Patrick Joseph Panuncillon</title>
-<meta name="description" content="A human-in-the-loop AI assistant that drafts on-brand text replies inside a home-services team's existing SMS platform. 48+ days live, zero outages, run cost down 65 to 70 percent.">
+<title>Dispatch Understudy, Case Study | Patrick Joseph Panuncillon</title>
+<meta name="description" content="A narrow, opt-in capture that turns an expert dispatcher's scheduling judgment into reviewable rules. Scheduling actions only, customer data masked, stays on company systems, and it proposes rather than acts.">
+<meta name="author" content="Patrick Joseph Panuncillon">
+<meta name="robots" content="index, follow">
 
 <style>
-  :root {
+:root {
     /* Cool, teal-biased neutrals so the palette reads as chosen, not defaulted. */
     --ink:        #14201e;
     --ink-2:      #44534f;
@@ -475,9 +477,9 @@
 
 <nav class="topnav"><div class="wrap">
 <a href="index.html" class="home">All builds</a>
+<a href="ai-sms-sales-assistant.html">Reply assistant</a>
 <a href="ai-reply-training-console.html">Training console</a>
 <a href="ai-call-dispatch-assistant.html">Dispatch assistant</a>
-<a href="ai-dispatch-understudy.html">Understudy</a>
 <a href="ai-campaign-automation.html">Campaigns</a>
 <a href="ai-invoice-automation.html">Invoicing</a>
 <a href="production-reliability-layer.html">Reliability</a>
@@ -485,272 +487,97 @@
 <a href="authorship-and-verification.html">Authorship</a>
 </div></nav>
 
-<!-- ===================== HERO ===================== -->
 <header class="hero">
   <div class="wrap">
     <div class="hero__status">
       <span><span class="dot"></span>Production system</span>
-      <span>Case study</span>
-      <span>48+ days live</span>
-      <span>Zero outages</span>
+      <span>Case study</span><span>Live, capturing</span><span>Privacy scoped</span>
     </div>
-
-    <h1>AI SMS Sales Assistant for a Home-Services Company</h1>
-
-    <p class="hero__oneliner">
-      A human-in-the-loop AI assistant that drafts on-brand text replies inside the team's
-      existing SMS platform, grounded in the company's own conversation history, so reps answer
-      leads in seconds instead of minutes, without losing their voice.
-    </p>
-
-    <div class="chips">
-      <span class="chip"><b>48+</b><span>days live, zero outages</span></span>
-      <span class="chip"><b>65 to 70%</b><span>lower daily run cost</span></span>
-      <span class="chip"><b>Five-figure</b><span>annual plan savings</span></span>
-      <span class="chip"><b>~7 wks</b><span>kickoff to production</span></span>
-    </div>
-
+    <h1>Dispatch Understudy: Turning Expert Scheduling Judgment Into Reviewable Rules</h1>
+    <p class="hero__oneliner">A narrow, opt-in capture that observes how an expert dispatcher schedules an ordinary day and turns that judgment into explicit rules a booking assistant can follow, so the knowledge stops being tribal and starts being reviewable.</p>
+    <div class="chips"><span class="chip"><b>Scheduling</b><span>actions only, nothing else</span></span><span class="chip"><b>Masked</b><span>customer identifiers removed at ingest</span></span><span class="chip"><b>Stays inside</b><span>no third-party model or vendor</span></span><span class="chip"><b>Proposes</b><span>never acts, never books</span></span></div>
     <p class="byline">
       Built by <strong>Patrick Joseph Panuncillon</strong>, Director for AI Strategy and Growth.
       Designed, built, shipped, and operated by one builder with AI augmentation.
     </p>
-
-
-</div>
+  </div>
 </header>
-
 <main>
-
-  <!-- ===================== PROBLEM ===================== -->
-  <section class="section--panel">
-    <div class="wrap">
-      <div class="section__head">
-        <p class="eyebrow">The problem</p>
-        <h2>Speed-to-lead was leaking deals, one text at a time.</h2>
-      </div>
-      <ul class="plist">
-        <li>Sales reps get a flood of inbound customer texts across many market inboxes. The speed-to-lead window is short, and slow replies lose deals.</li>
-        <li>Every reply was typed from scratch. Quality and voice were inconsistent, and high-volume or after-hours periods meant missed or delayed responses.</li>
-        <li>Off-the-shelf AI reply tools sound generic. They do not know this company's pricing, promotions, financing options, or how this team actually talks.</li>
-      </ul>
+<section class="section--panel">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">The problem</p>
+      <h2>You cannot interview your way to the rule someone actually uses.</h2>
+      
     </div>
-  </section>
+    <ul class="plist"><li>The best scheduling decisions in a field-service business are made by one or two experienced people, in seconds, using rules they have never written down and could not fully state if asked.</li><li>Interviewing them does not recover it. People sincerely describe the rule they believe they use, which is rarely the rule they actually apply under pressure at 4pm on a Friday.</li><li>Without that ground truth, an automated booking assistant is built on assumptions and, worse, has no honest way to be scored. It can be confidently and consistently wrong and nothing in the system would notice.</li></ul>
+  </div>
+</section>
 
-  <!-- ===================== SOLUTION ===================== -->
-  <section>
-    <div class="wrap">
-      <div class="section__head">
-        <p class="eyebrow">The solution</p>
-        <h2>AI drafts, a human always sends.</h2>
-      </div>
-      <div class="prose">
-        <p>
-          A browser-based AI assistant lives inside the rep's existing SMS tool. The moment a
-          customer texts, it generates three ready-to-send reply drafts in the rep's own voice.
-          The rep edits if needed and sends with one click.
-        </p>
-        <p>
-          Nothing is ever sent automatically. A person is always in the loop, and the drafting
-          model is Claude. High-risk messages, such as safety, legal, billing disputes, or a
-          request for a manager, are detected and escalated to a team channel instead of being
-          auto-drafted.
-        </p>
-      </div>
-      <div class="note">
-        <span class="k">The trust model</span>
-        Context in, three smart drafts out, a human reviews and sends. The customer experience stays
-        personal, and the assistant never invents a price.
-      </div>
+<section>
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">The solution</p>
+      <h2>Observe the decision, mask the person, propose a rule, let a human promote it.</h2>
+      
     </div>
-  </section>
+    <div class="prose"><p>A companion capture records scheduling actions, and only scheduling actions, during defined sessions on an ordinary shift. Running it with the knowledge of the person being observed is a condition of use rather than a courtesy. Customer identifiers are masked before anything is stored, and everything stays on company-controlled infrastructure.</p><p>Repeated patterns are reduced to candidate rules stated in plain language: what was true at the time, and what the dispatcher did about it. A person reviews each candidate and decides whether it becomes a production rule. The same record is the scoring set, so the booking assistant's proposals can be compared against what the expert actually did.</p></div><div class="note"><span class="k">What this is, and what it was built not to become</span>This is an expertise-capture tool. It was deliberately scoped so that it cannot be repurposed into a monitoring tool, because the capability to do so was never built into it.</div>
+  </div>
+</section>
 
-  <!-- ===================== HOW IT WORKS ===================== -->
-  <section class="section--panel">
-    <div class="wrap">
-      <div class="section__head">
-        <p class="eyebrow">How it works</p>
-        <h2>Eight capabilities behind every draft.</h2>
-        <p class="lede">Described at the capability level: what each part does and why it matters.</p>
-      </div>
-
-      <div class="cards">
-        <div class="card">
-          <h3><span class="ix">RAG</span>Grounded in the company's own data</h3>
-          <p>Every draft is informed by the team's real past conversations, retrieved on the fly from a managed vector database, so replies match how this team actually writes and what it offers.</p>
-        </div>
-        <div class="card">
-          <h3><span class="ix">Voices</span>Per-department assistants</h3>
-          <p>Separate, purpose-built assistants for each line of business, sales, service, electrical, and more, each grounded in its own history and operating playbook. Not a one-size-fits-all bot.</p>
-        </div>
-        <div class="card">
-          <h3><span class="ix">Latency</span>Instant, zero-wait drafts</h3>
-          <p>A pre-generation layer prepares the reply the instant a message arrives, so the draft is waiting before the rep opens the chat. No ten-second spinner.</p>
-        </div>
-        <div class="card">
-          <h3><span class="ix">Context</span>Customer-aware</h3>
-          <p>The assistant references the customer's real quote and what was discussed on a recent phone call, so the text picks up where the last touch left off, and it never invents a price.</p>
-        </div>
-        <div class="card">
-          <h3><span class="ix">Sell</span>Consultative, not an order-taker</h3>
-          <p>Drafts acknowledge the customer, answer the question, ask a smart follow-up, and push to a call when a deal needs a human touch.</p>
-        </div>
-        <div class="card">
-          <h3><span class="ix">Estimate</span>Rep-in-loop auto-estimates</h3>
-          <p>From a conversation, the assistant can draft a real estimate. The rep enters or accepts AI-suggested details and creates it, with identity fields auto-filled from the lead record.</p>
-        </div>
-        <div class="card">
-          <h3><span class="ix">Learn</span>Always learning</h3>
-          <p>A nightly process feeds new real conversations back into the system, including the replies reps actually sent, so it keeps sounding more like the team over time.</p>
-        </div>
-        <div class="card">
-          <h3><span class="ix">Cost</span>Cost-controlled by design</h3>
-          <p>A routing layer skips junk messages, uses a cheaper model for simple replies and the top model for substantive ones, and caches the heavy shared context to keep running cost low.</p>
-        </div>
-      </div>
-
-
-
-</div>
-  </section>
-
-  <!-- ===================== PHASED BUILD ===================== -->
-  <section>
-    <div class="wrap">
-      <div class="section__head">
-        <p class="eyebrow">The phased build</p>
-        <h2>Shipped in phases, each one answering something the team actually needed.</h2>
-      </div>
-
-      <div class="timeline">
-        <div class="phase">
-          <div class="phase__num">1</div>
-          <h3>Proof of concept <span class="tag">Live, used daily</span></h3>
-          <p>A message comes in, the AI returns three drafts in the panel. Simple, but real, and in a rep's hands fast on live customers.</p>
-        </div>
-        <div class="phase">
-          <div class="phase__num">2</div>
-          <h3>The redesign that made it stick <span class="tag">A deliberate half-step</span></h3>
-          <p>The first rep said the panel blocked his screen, so it was rebuilt to float, drag, and resize. That turned "I tried it" into "I use it every day."</p>
-        </div>
-        <div class="phase">
-          <div class="phase__num">3</div>
-          <h3>Voice and efficiency</h3>
-          <p>Grounded the drafts in thousands of the rep's real past messages, added caching to cut cost, a nightly learning sync, and an alert-the-team path for anything unfamiliar instead of guessing.</p>
-        </div>
-        <div class="phase">
-          <div class="phase__num">4</div>
-          <h3>Facts and consultative tone</h3>
-          <p>Real estimate prices, recent-call context, a consultative rewrite, and the instant pre-generation that removed the wait.</p>
-        </div>
-        <div class="phase">
-          <div class="phase__num">5</div>
-          <h3>Auto-estimates and multi-department rollout</h3>
-          <p>Rep-in-loop estimate creation, plus purpose-built assistants cloned per department, each in its own voice.</p>
-        </div>
-      </div>
+<section class="section--panel">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">Scope and privacy</p>
+      <h2>The boundaries were set before the first line was written.</h2>
+      <p class="lede">This section is the design, not a policy statement written afterwards.</p>
     </div>
-  </section>
+    <div class="dl"><div class="dl__col"><h3>What it does</h3><ul class="dl--yes"><li>Captures scheduling actions inside one tool, and nothing else.</li><li>Masks customer identifying data at ingest, so what is retained describes the shape of a decision rather than a person.</li><li>Keeps every captured record on company-controlled infrastructure.</li><li>Runs only in defined sessions, for a stated purpose, and only with the knowledge of the person being observed. That is a condition of use, not a courtesy.</li><li>Produces candidate rules in plain language, for human review.</li><li>Serves as the ground-truth set used to score the booking assistant and to find its blind spots.</li></ul></div><div class="dl__col dl__col--no"><h3>What it does not do</h3><ul class="dl--no"><li>Does not log keystrokes, screen contents, or any activity outside the scheduling workflow.</li><li>Does not measure, rank, score, or report on an individual's performance.</li><li>Does not retain customer personal data.</li><li>Does not send anything to a third-party model, vendor, or external service.</li><li>Does not act. It never books, changes, reschedules, or cancels anything.</li><li>Does not run continuously. It is scoped to defined capture sessions.</li></ul></div></div><div class="band band--accent"><span class="k">Why the constraints came first</span><p>The scope, the masking, and the stays-inside rule were decided before any capture was built, not retrofitted after someone raised a concern. That ordering is the reason the tool cannot quietly become something else: there is no general capture capability sitting behind a configuration flag, because none was ever written.</p></div>
+  </div>
+</section>
 
-  <!-- ===================== RESULTS ===================== -->
-  <section class="section--panel">
-    <div class="wrap">
-      <div class="section__head">
-        <p class="eyebrow">Results and impact</p>
-        <h2>Measured on real traffic, not a demo.</h2>
-      </div>
-
-      <!-- IMAGE SLOT 7: results dashboard, rendered in CSS, no screenshot needed -->
-      <div class="tiles">
-        <div class="tile"><div class="num">48+</div><div class="lab">Days live in production, zero outages</div></div>
-        <div class="tile"><div class="num">65 to 70%</div><div class="lab">Lower daily running cost</div></div>
-        <div class="tile"><div class="num">Five-figure</div><div class="lab">Saved per year on the messaging plan</div></div>
-        <div class="tile"><div class="num">Thousands</div><div class="lab">Real past messages grounding the rep's voice</div></div>
-        <div class="tile"><div class="num">43%</div><div class="lab">Lower cost per draft from routing and caching</div></div>
-        <div class="tile"><div class="num">3</div><div class="lab">Drafts ready per inbound message, instant</div></div>
-        <div class="tile"><div class="num">0</div><div class="lab">Auto-sends. A human reviews every reply</div></div>
-        <div class="tile"><div class="num">~7 wks</div><div class="lab">From kickoff to a live, daily-used system</div></div>
-      </div>
-
-      <!-- IMAGE SLOT 4: cost reduction chart, rendered in CSS from the real numbers -->
-      <figure class="chart">
-        <div class="chart__row">
-          <span class="chart__lab">Before</span>
-          <div class="chart__track">
-            <div class="chart__bar chart__bar--before"><span>Before</span></div>
-          </div>
-        </div>
-        <div class="chart__row">
-          <span class="chart__lab">After</span>
-          <div class="chart__track">
-            <div class="chart__bar chart__bar--after"><span>After</span></div>
-          </div>
-        </div>
-        <p class="chart__foot">Daily running cost down ~65 to 70%, plus ~43% lower per draft. No loss of quality or speed.</p>
-        <figcaption style="margin-top:14px">
-          <span>Running cost down ~65 to 70%, measured on real traffic, with no loss of quality.</span>
-        </figcaption>
-      </figure>
-
-      <div class="grid-2" style="margin-top:26px">
-        <div class="band">
-          <span class="k">Production note</span>
-          <p>When a third-party memory database had a brief outage, it was caught and fully restored the same day, with no customer impact, and the system caught up on everything it missed.</p>
-        </div>
-        <div class="band">
-          <span class="k">Facts, not guesses</span>
-          <p>The assistant quotes the customer's real estimate and recent-call context, never a made-up price. Auto-drafted estimates are reviewed by the rep before anything is sent.</p>
-        </div>
-      </div>
-
-      <div class="band band--accent">
-        <span class="k">Scope vs effort</span>
-        <p>One operator, working with AI augmentation, delivered the scope a 5 to 6 person development team would typically take 4 to 6 months to ship.</p>
-      </div>
-
-
-</div>
-  </section>
-
-  <!-- ===================== WHAT IT DEMONSTRATES ===================== -->
-  <section>
-    <div class="wrap">
-      <div class="section__head">
-        <p class="eyebrow">What it demonstrates</p>
-        <h2>The skills behind the system.</h2>
-      </div>
-      <div class="tags">
-        <span>Human-in-the-loop AI product design</span>
-        <span>Retrieval-augmented generation on a private corpus</span>
-        <span>Multi-agent / per-persona systems</span>
-        <span>Prompt engineering</span>
-        <span>Safety and escalation guardrails</span>
-        <span>Latency engineering: pre-generation + caching</span>
-        <span>LLM cost optimization</span>
-        <span>Browser-extension integration</span>
-        <span>Workflow-automation integration</span>
-        <span>Production operations: monitoring, incident response</span>
-        <span>Continuous learning pipelines</span>
-        <span>Turning a messy sales operation into a shipped, daily-used system</span>
-      </div>
+<section>
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">How it works</p>
+      <h2>Six steps from an observed action to a rule in production.</h2>
+      
     </div>
-  </section>
+    <div class="cards"><div class="card"><h3><span class="ix">Scope</span>Narrow by construction</h3><p>The capture is bound to scheduling actions in a single tool. There is no general screen or keystroke capture to switch on, because it does not exist in the codebase.</p></div><div class="card"><h3><span class="ix">Mask</span>Identifiers removed at ingest</h3><p>Customer identifying fields are masked before storage. The retained record preserves the decision shape, such as trade, distance band, and time of day, and discards who it happened to.</p></div><div class="card"><h3><span class="ix">Store</span>Company-controlled, full stop</h3><p>Captured actions land in a data store the company owns and controls. No third-party model, analytics vendor, or external service is in the path at any point.</p></div><div class="card"><h3><span class="ix">Extract</span>Actions become candidate rules</h3><p>Repeated patterns are reduced to candidate rules written in plain language, in the form of what was true and what the dispatcher did, so a non-engineer can read and argue with them.</p></div><div class="card"><h3><span class="ix">Review</span>A person promotes, or does not</h3><p>No candidate becomes a production rule without human review and approval. The tool proposes. It has no authority to decide what the business believes.</p></div><div class="card"><h3><span class="ix">Score</span>Ground truth for the assistant</h3><p>The booking assistant's proposals are compared against what the expert actually did. This is how the assistant's blind spots were found, and it is the only honest measure available.</p></div></div><figure><div class="flow"><div class="flow__node"><span class="n">01</span><span class="t">Opt-in session</span><span class="d">Defined window, participant informed</span></div><span class="flow__arrow" aria-hidden="true">&#8250;</span><div class="flow__node"><span class="n">02</span><span class="t">Scheduling actions</span><span class="d">One tool, one workflow, nothing else</span></div><span class="flow__arrow" aria-hidden="true">&#8250;</span><div class="flow__node flow__node--gate"><span class="n">03</span><span class="t">Mask identifiers</span><span class="d">Customer data removed before storage</span></div><span class="flow__arrow" aria-hidden="true">&#8250;</span><div class="flow__node flow__node--gate"><span class="n">04</span><span class="t">Company-owned store</span><span class="d">No third party in the path</span></div><span class="flow__arrow" aria-hidden="true">&#8250;</span><div class="flow__node"><span class="n">05</span><span class="t">Candidate rules</span><span class="d">Plain language, arguable by a non-engineer</span></div><span class="flow__arrow" aria-hidden="true">&#8250;</span><div class="flow__node flow__node--gate"><span class="n">06</span><span class="t">Human review</span><span class="d">A person promotes or rejects each rule</span></div><span class="flow__arrow" aria-hidden="true">&#8250;</span><div class="flow__node"><span class="n">07</span><span class="t">Live ruleset</span><span class="d">Feeds the call-time booking assistant</span></div></div><figcaption class="flow__cap">Two of the seven steps exist purely to constrain what the system is allowed to know.</figcaption></figure>
+  </div>
+</section>
 
-  <!-- ===================== OUTCOME / NEXT ===================== -->
-  <section class="section--panel outcome">
-    <div class="wrap">
-      <p class="eyebrow">Outcome and what is next</p>
-      <h2>Live, expanding, and the first of several.</h2>
-      <p>
-        The system is live and expanding from the first department to every line of business, with
-        auto-drafted estimates and continuous learning. It is the first of several AI initiatives in
-        the engagement.
-      </p>
+<section class="section--panel">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">Why it matters</p>
+      <h2>This is the part that decides whether the automation is trustworthy.</h2>
+      
     </div>
-  </section>
+    <div class="grid-2" style="margin-top:26px"><div class="band"><span class="k">The rule described is not the rule applied</span><p>An expert's stated rule and their revealed rule are different rules. Observation recovers the second one, and the second one is what the business actually runs on.</p></div><div class="band"><span class="k">An assistant tuned only against itself</span><p>Without an independent record of expert behaviour, an automated scheduler has no external reference. It optimises toward its own assumptions and drifts confidently. This capture is that external reference.</p></div></div><div class="band"><span class="k">Succession, written down</span><p>The secondary outcome matters as much as the primary one. Judgment that lived in one person's head is now written down, reviewable, and arguable. That is a continuity asset for the business regardless of what any model does with it.</p></div>
+  </div>
+</section>
 
+<section>
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">What it demonstrates</p>
+      <h2>The skills behind the system.</h2>
+      
+    </div>
+    <div class="tags"><span>Expertise capture and knowledge elicitation</span><span>Privacy-by-design data collection</span><span>PII masking at ingest</span><span>Rule extraction from observed behaviour</span><span>Human-in-the-loop rule promotion</span><span>Ground-truth evaluation set construction</span><span>Scoped, non-continuous capture</span><span>Data residency and third-party exclusion</span><span>Browser-extension instrumentation</span><span>Automation scoring and blind-spot discovery</span><span>Designing a tool that cannot be repurposed</span></div>
+  </div>
+</section>
+
+<section class="section--panel outcome">
+  <div class="wrap">
+    <p class="eyebrow">Outcome</p>
+    <h2>Judgment out of one head, into a reviewable ruleset.</h2>
+    <p>The scheduling judgment that used to live with one person is now written down, reviewable, and used to score the system that depends on it. The capture is narrow, opt-in, masked, and stays on company systems, and those properties are structural rather than promised.</p>
+  </div>
+</section>
 </main>
 
-<!-- ===================== FOOTER ===================== -->
 <section class="legal">
   <div class="wrap">
     <h4>Confidentiality and intellectual property</h4>

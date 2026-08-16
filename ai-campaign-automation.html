@@ -1,16 +1,18 @@
 <!--
-  Portfolio case study: AI SMS Sales Assistant for a Home-Services Company
+  Portfolio case study: Self-Serve Campaign Automation, Case Study
   Built by Patrick Joseph Panuncillon, Director for AI Strategy and Growth.
   Self-contained: inline CSS only, system fonts, no external requests, works offline.
   Client and vendors anonymized per engagement confidentiality. No em dashes.
 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AI SMS Sales Assistant, Case Study | Patrick Joseph Panuncillon</title>
-<meta name="description" content="A human-in-the-loop AI assistant that drafts on-brand text replies inside a home-services team's existing SMS platform. 48+ days live, zero outages, run cost down 65 to 70 percent.">
+<title>Self-Serve Campaign Automation, Case Study | Patrick Joseph Panuncillon</title>
+<meta name="description" content="A short form and a brand-locked template let non-technical staff launch campaigns, with a required human approval gate and a single scheduling path. In build, described at design level.">
+<meta name="author" content="Patrick Joseph Panuncillon">
+<meta name="robots" content="index, follow">
 
 <style>
-  :root {
+:root {
     /* Cool, teal-biased neutrals so the palette reads as chosen, not defaulted. */
     --ink:        #14201e;
     --ink-2:      #44534f;
@@ -475,282 +477,96 @@
 
 <nav class="topnav"><div class="wrap">
 <a href="index.html" class="home">All builds</a>
+<a href="ai-sms-sales-assistant.html">Reply assistant</a>
 <a href="ai-reply-training-console.html">Training console</a>
 <a href="ai-call-dispatch-assistant.html">Dispatch assistant</a>
 <a href="ai-dispatch-understudy.html">Understudy</a>
-<a href="ai-campaign-automation.html">Campaigns</a>
 <a href="ai-invoice-automation.html">Invoicing</a>
 <a href="production-reliability-layer.html">Reliability</a>
 <a href="ai-search-reputation-lifecycle.html">Search and lifecycle</a>
 <a href="authorship-and-verification.html">Authorship</a>
 </div></nav>
 
-<!-- ===================== HERO ===================== -->
 <header class="hero">
   <div class="wrap">
     <div class="hero__status">
-      <span><span class="dot"></span>Production system</span>
-      <span>Case study</span>
-      <span>48+ days live</span>
-      <span>Zero outages</span>
+      <span><span class="dot"></span>In build</span>
+      <span>Case study</span><span>Design level</span><span>Human approval gate</span>
     </div>
-
-    <h1>AI SMS Sales Assistant for a Home-Services Company</h1>
-
-    <p class="hero__oneliner">
-      A human-in-the-loop AI assistant that drafts on-brand text replies inside the team's
-      existing SMS platform, grounded in the company's own conversation history, so reps answer
-      leads in seconds instead of minutes, without losing their voice.
-    </p>
-
-    <div class="chips">
-      <span class="chip"><b>48+</b><span>days live, zero outages</span></span>
-      <span class="chip"><b>65 to 70%</b><span>lower daily run cost</span></span>
-      <span class="chip"><b>Five-figure</b><span>annual plan savings</span></span>
-      <span class="chip"><b>~7 wks</b><span>kickoff to production</span></span>
-    </div>
-
+    <h1>Self-Serve Campaign Automation With a Human Approval Gate</h1>
+    <p class="hero__oneliner">A non-technical sender fills in a short form and picks a brand-locked template. The system assembles the campaign, renders it, and routes it to a named approver. Nothing schedules until a person signs off, and there is no field in the form that can break the brand.</p>
+    <div class="chips"><span class="chip"><b>In build</b><span>described at design level</span></span><span class="chip"><b>0</b><span>unreviewed sends, structurally</span></span><span class="chip"><b>Locked</b><span>brand lives in the template</span></span><span class="chip"><b>1 path</b><span>out. No side door</span></span></div>
     <p class="byline">
       Built by <strong>Patrick Joseph Panuncillon</strong>, Director for AI Strategy and Growth.
       Designed, built, shipped, and operated by one builder with AI augmentation.
     </p>
-
-
-</div>
+  </div>
 </header>
-
 <main>
-
-  <!-- ===================== PROBLEM ===================== -->
-  <section class="section--panel">
-    <div class="wrap">
-      <div class="section__head">
-        <p class="eyebrow">The problem</p>
-        <h2>Speed-to-lead was leaking deals, one text at a time.</h2>
-      </div>
-      <ul class="plist">
-        <li>Sales reps get a flood of inbound customer texts across many market inboxes. The speed-to-lead window is short, and slow replies lose deals.</li>
-        <li>Every reply was typed from scratch. Quality and voice were inconsistent, and high-volume or after-hours periods meant missed or delayed responses.</li>
-        <li>Off-the-shelf AI reply tools sound generic. They do not know this company's pricing, promotions, financing options, or how this team actually talks.</li>
-      </ul>
+<section class="section--panel">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">The problem</p>
+      <h2>Both obvious fixes make it worse.</h2>
+      
     </div>
-  </section>
+    <ul class="plist"><li>Campaigns bottleneck on whoever knows the email platform. Requests queue behind one person, and time-sensitive campaigns go out late or quietly do not go out at all.</li><li>Give more people direct access and brand consistency degrades immediately. Typography, layout, disclaimers, and sending identity drift campaign by campaign, and no single instance looks bad enough to trigger a fix.</li><li>So the real constraint is uncomfortable: the answer cannot be more access, and it cannot be one gatekeeper. It has to be a path where the fast way and the correct way are the same way.</li></ul>
+  </div>
+</section>
 
-  <!-- ===================== SOLUTION ===================== -->
-  <section>
-    <div class="wrap">
-      <div class="section__head">
-        <p class="eyebrow">The solution</p>
-        <h2>AI drafts, a human always sends.</h2>
-      </div>
-      <div class="prose">
-        <p>
-          A browser-based AI assistant lives inside the rep's existing SMS tool. The moment a
-          customer texts, it generates three ready-to-send reply drafts in the rep's own voice.
-          The rep edits if needed and sends with one click.
-        </p>
-        <p>
-          Nothing is ever sent automatically. A person is always in the loop, and the drafting
-          model is Claude. High-risk messages, such as safety, legal, billing disputes, or a
-          request for a manager, are detected and escalated to a team channel instead of being
-          auto-drafted.
-        </p>
-      </div>
-      <div class="note">
-        <span class="k">The trust model</span>
-        Context in, three smart drafts out, a human reviews and sends. The customer experience stays
-        personal, and the assistant never invents a price.
-      </div>
+<section>
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">The solution</p>
+      <h2>Make the form the guardrail.</h2>
+      
     </div>
-  </section>
+    <div class="prose"><p>A short form is the entire interface. The sender chooses a brand-locked template and supplies only the content that legitimately varies: audience, subject, and body copy. Everything structural is fixed inside the template and is not exposed as a field.</p><p>The system assembles the campaign deterministically, renders a real preview, and routes it to a named approver. Approval is a required step in the path, not a notification that can be missed. Only an approved campaign is scheduled, and it is scheduled through a single code path with no bypass.</p></div><div class="note"><span class="k">The design principle</span>If a field cannot be wrong, it cannot be got wrong. Brand governance implemented as training is a hope. Implemented as an absent form field, it is a guarantee.</div>
+  </div>
+</section>
 
-  <!-- ===================== HOW IT WORKS ===================== -->
-  <section class="section--panel">
-    <div class="wrap">
-      <div class="section__head">
-        <p class="eyebrow">How it works</p>
-        <h2>Eight capabilities behind every draft.</h2>
-        <p class="lede">Described at the capability level: what each part does and why it matters.</p>
-      </div>
-
-      <div class="cards">
-        <div class="card">
-          <h3><span class="ix">RAG</span>Grounded in the company's own data</h3>
-          <p>Every draft is informed by the team's real past conversations, retrieved on the fly from a managed vector database, so replies match how this team actually writes and what it offers.</p>
-        </div>
-        <div class="card">
-          <h3><span class="ix">Voices</span>Per-department assistants</h3>
-          <p>Separate, purpose-built assistants for each line of business, sales, service, electrical, and more, each grounded in its own history and operating playbook. Not a one-size-fits-all bot.</p>
-        </div>
-        <div class="card">
-          <h3><span class="ix">Latency</span>Instant, zero-wait drafts</h3>
-          <p>A pre-generation layer prepares the reply the instant a message arrives, so the draft is waiting before the rep opens the chat. No ten-second spinner.</p>
-        </div>
-        <div class="card">
-          <h3><span class="ix">Context</span>Customer-aware</h3>
-          <p>The assistant references the customer's real quote and what was discussed on a recent phone call, so the text picks up where the last touch left off, and it never invents a price.</p>
-        </div>
-        <div class="card">
-          <h3><span class="ix">Sell</span>Consultative, not an order-taker</h3>
-          <p>Drafts acknowledge the customer, answer the question, ask a smart follow-up, and push to a call when a deal needs a human touch.</p>
-        </div>
-        <div class="card">
-          <h3><span class="ix">Estimate</span>Rep-in-loop auto-estimates</h3>
-          <p>From a conversation, the assistant can draft a real estimate. The rep enters or accepts AI-suggested details and creates it, with identity fields auto-filled from the lead record.</p>
-        </div>
-        <div class="card">
-          <h3><span class="ix">Learn</span>Always learning</h3>
-          <p>A nightly process feeds new real conversations back into the system, including the replies reps actually sent, so it keeps sounding more like the team over time.</p>
-        </div>
-        <div class="card">
-          <h3><span class="ix">Cost</span>Cost-controlled by design</h3>
-          <p>A routing layer skips junk messages, uses a cheaper model for simple replies and the top model for substantive ones, and caches the heavy shared context to keep running cost low.</p>
-        </div>
-      </div>
-
-
-
-</div>
-  </section>
-
-  <!-- ===================== PHASED BUILD ===================== -->
-  <section>
-    <div class="wrap">
-      <div class="section__head">
-        <p class="eyebrow">The phased build</p>
-        <h2>Shipped in phases, each one answering something the team actually needed.</h2>
-      </div>
-
-      <div class="timeline">
-        <div class="phase">
-          <div class="phase__num">1</div>
-          <h3>Proof of concept <span class="tag">Live, used daily</span></h3>
-          <p>A message comes in, the AI returns three drafts in the panel. Simple, but real, and in a rep's hands fast on live customers.</p>
-        </div>
-        <div class="phase">
-          <div class="phase__num">2</div>
-          <h3>The redesign that made it stick <span class="tag">A deliberate half-step</span></h3>
-          <p>The first rep said the panel blocked his screen, so it was rebuilt to float, drag, and resize. That turned "I tried it" into "I use it every day."</p>
-        </div>
-        <div class="phase">
-          <div class="phase__num">3</div>
-          <h3>Voice and efficiency</h3>
-          <p>Grounded the drafts in thousands of the rep's real past messages, added caching to cut cost, a nightly learning sync, and an alert-the-team path for anything unfamiliar instead of guessing.</p>
-        </div>
-        <div class="phase">
-          <div class="phase__num">4</div>
-          <h3>Facts and consultative tone</h3>
-          <p>Real estimate prices, recent-call context, a consultative rewrite, and the instant pre-generation that removed the wait.</p>
-        </div>
-        <div class="phase">
-          <div class="phase__num">5</div>
-          <h3>Auto-estimates and multi-department rollout</h3>
-          <p>Rep-in-loop estimate creation, plus purpose-built assistants cloned per department, each in its own voice.</p>
-        </div>
-      </div>
+<section>
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">How it works</p>
+      <h2>Six steps, one of which is a person.</h2>
+      
     </div>
-  </section>
+    <div class="cards"><div class="card"><h3><span class="ix">Form</span>Ask only for what varies</h3><p>The sender provides audience, subject, and body content. Nothing else is requested, because nothing else should be theirs to decide.</p></div><div class="card"><h3><span class="ix">Template</span>Brand-locked by construction</h3><p>Layout, typography, footer, legal disclaimers, and sending identity live in the template. No form field overrides them, so no submission can produce an off-brand campaign.</p></div><div class="card"><h3><span class="ix">Assemble</span>Deterministic build</h3><p>The campaign is assembled the same way every time from the template and the submitted fields. Same input, same campaign, which is what makes a preview meaningful.</p></div><div class="card"><h3><span class="ix">Preview</span>What is approved is what sends</h3><p>The approver reviews the rendered campaign itself, not a summary or a description of it. There is no gap between the artefact reviewed and the artefact sent.</p></div><div class="card"><h3><span class="ix">Gate</span>A named human approves</h3><p>Approval is a required transition, not an alert someone might action. Without it the campaign does not reach the scheduler at all.</p></div><div class="card"><h3><span class="ix">Schedule</span>One path out</h3><p>An approved campaign is scheduled through a single code path. There is no secondary route, manual override, or admin shortcut that skips the gate.</p></div></div><figure><div class="flow"><div class="flow__node"><span class="n">01</span><span class="t">Sender fills form</span><span class="d">Audience, subject, body. Nothing structural</span></div><span class="flow__arrow" aria-hidden="true">&#8250;</span><div class="flow__node"><span class="n">02</span><span class="t">Brand-locked template</span><span class="d">Layout and identity not editable</span></div><span class="flow__arrow" aria-hidden="true">&#8250;</span><div class="flow__node"><span class="n">03</span><span class="t">Deterministic assembly</span><span class="d">Same input, same campaign every time</span></div><span class="flow__arrow" aria-hidden="true">&#8250;</span><div class="flow__node"><span class="n">04</span><span class="t">Rendered preview</span><span class="d">The real artefact, not a description</span></div><span class="flow__arrow" aria-hidden="true">&#8250;</span><div class="flow__node flow__node--gate"><span class="n">05</span><span class="t">Named approver</span><span class="d">Required transition. No bypass exists</span></div><span class="flow__arrow" aria-hidden="true">&#8250;</span><div class="flow__node"><span class="n">06</span><span class="t">Scheduled send</span><span class="d">One code path out</span></div></div><figcaption class="flow__cap">The gate is a structural step in the path, not a policy layered on top of it.</figcaption></figure>
+  </div>
+</section>
 
-  <!-- ===================== RESULTS ===================== -->
-  <section class="section--panel">
-    <div class="wrap">
-      <div class="section__head">
-        <p class="eyebrow">Results and impact</p>
-        <h2>Measured on real traffic, not a demo.</h2>
-      </div>
-
-      <!-- IMAGE SLOT 7: results dashboard, rendered in CSS, no screenshot needed -->
-      <div class="tiles">
-        <div class="tile"><div class="num">48+</div><div class="lab">Days live in production, zero outages</div></div>
-        <div class="tile"><div class="num">65 to 70%</div><div class="lab">Lower daily running cost</div></div>
-        <div class="tile"><div class="num">Five-figure</div><div class="lab">Saved per year on the messaging plan</div></div>
-        <div class="tile"><div class="num">Thousands</div><div class="lab">Real past messages grounding the rep's voice</div></div>
-        <div class="tile"><div class="num">43%</div><div class="lab">Lower cost per draft from routing and caching</div></div>
-        <div class="tile"><div class="num">3</div><div class="lab">Drafts ready per inbound message, instant</div></div>
-        <div class="tile"><div class="num">0</div><div class="lab">Auto-sends. A human reviews every reply</div></div>
-        <div class="tile"><div class="num">~7 wks</div><div class="lab">From kickoff to a live, daily-used system</div></div>
-      </div>
-
-      <!-- IMAGE SLOT 4: cost reduction chart, rendered in CSS from the real numbers -->
-      <figure class="chart">
-        <div class="chart__row">
-          <span class="chart__lab">Before</span>
-          <div class="chart__track">
-            <div class="chart__bar chart__bar--before"><span>Before</span></div>
-          </div>
-        </div>
-        <div class="chart__row">
-          <span class="chart__lab">After</span>
-          <div class="chart__track">
-            <div class="chart__bar chart__bar--after"><span>After</span></div>
-          </div>
-        </div>
-        <p class="chart__foot">Daily running cost down ~65 to 70%, plus ~43% lower per draft. No loss of quality or speed.</p>
-        <figcaption style="margin-top:14px">
-          <span>Running cost down ~65 to 70%, measured on real traffic, with no loss of quality.</span>
-        </figcaption>
-      </figure>
-
-      <div class="grid-2" style="margin-top:26px">
-        <div class="band">
-          <span class="k">Production note</span>
-          <p>When a third-party memory database had a brief outage, it was caught and fully restored the same day, with no customer impact, and the system caught up on everything it missed.</p>
-        </div>
-        <div class="band">
-          <span class="k">Facts, not guesses</span>
-          <p>The assistant quotes the customer's real estimate and recent-call context, never a made-up price. Auto-drafted estimates are reviewed by the rep before anything is sent.</p>
-        </div>
-      </div>
-
-      <div class="band band--accent">
-        <span class="k">Scope vs effort</span>
-        <p>One operator, working with AI augmentation, delivered the scope a 5 to 6 person development team would typically take 4 to 6 months to ship.</p>
-      </div>
-
-
-</div>
-  </section>
-
-  <!-- ===================== WHAT IT DEMONSTRATES ===================== -->
-  <section>
-    <div class="wrap">
-      <div class="section__head">
-        <p class="eyebrow">What it demonstrates</p>
-        <h2>The skills behind the system.</h2>
-      </div>
-      <div class="tags">
-        <span>Human-in-the-loop AI product design</span>
-        <span>Retrieval-augmented generation on a private corpus</span>
-        <span>Multi-agent / per-persona systems</span>
-        <span>Prompt engineering</span>
-        <span>Safety and escalation guardrails</span>
-        <span>Latency engineering: pre-generation + caching</span>
-        <span>LLM cost optimization</span>
-        <span>Browser-extension integration</span>
-        <span>Workflow-automation integration</span>
-        <span>Production operations: monitoring, incident response</span>
-        <span>Continuous learning pipelines</span>
-        <span>Turning a messy sales operation into a shipped, daily-used system</span>
-      </div>
+<section class="section--panel">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">Status and scope</p>
+      <h2>In build. Described honestly as such.</h2>
+      
     </div>
-  </section>
+    <div class="band band--accent"><span class="k">Where this system actually is</span><p>This system is in build. The form, the template lock, deterministic assembly, and approval routing are implemented. It is described here at the design level only. Production results will be added to this page when it has run long enough to have them, and not before.</p></div><div class="grid-2" style="margin-top:26px"><div class="band"><span class="k">Why it is included anyway</span><p>The interesting content is the design decision, not the outcome. Choosing to remove fields rather than add training is a repeatable pattern, and it is the part that transfers to another business.</p></div><div class="band"><span class="k">What is deliberately absent</span><p>No language model sits in this path. Campaign assembly is templating and validation. Adding a model here would introduce variance into the one place the business needs none.</p></div></div>
+  </div>
+</section>
 
-  <!-- ===================== OUTCOME / NEXT ===================== -->
-  <section class="section--panel outcome">
-    <div class="wrap">
-      <p class="eyebrow">Outcome and what is next</p>
-      <h2>Live, expanding, and the first of several.</h2>
-      <p>
-        The system is live and expanding from the first department to every line of business, with
-        auto-drafted estimates and continuous learning. It is the first of several AI initiatives in
-        the engagement.
-      </p>
+<section>
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">What it demonstrates</p>
+      <h2>The skills behind the system.</h2>
+      
     </div>
-  </section>
+    <div class="tags"><span>Self-serve internal tooling</span><span>Brand governance implemented in software</span><span>Deterministic templating</span><span>Approval workflows and structural gating</span><span>Marketing-platform integration</span><span>Interface design for non-technical users</span><span>Preventing error by removing the field</span><span>Knowing where not to use a model</span><span>Workflow automation</span></div>
+  </div>
+</section>
 
+<section class="section--panel outcome">
+  <div class="wrap">
+    <p class="eyebrow">Outcome and what is next</p>
+    <h2>In build. The bottleneck stops being a person.</h2>
+    <p>When it ships, the campaign bottleneck stops being an individual and brand consistency stops depending on discipline, because the only available way to send is the correct one. Results will be published here once it has been running long enough to report them honestly.</p>
+  </div>
+</section>
 </main>
 
-<!-- ===================== FOOTER ===================== -->
 <section class="legal">
   <div class="wrap">
     <h4>Confidentiality and intellectual property</h4>
