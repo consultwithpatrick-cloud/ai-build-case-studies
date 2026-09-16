@@ -1,8 +1,10 @@
 # AI Build Case Studies
 
-Anonymized case studies of AI systems I designed, built, shipped, and operate. Each write-up covers the problem, the design decisions, the boundaries drawn around the model, and the honest status of the system.
+Anonymized case studies of AI systems I designed, built, and shipped. Each write-up covers the problem, the design decisions, the boundaries drawn around the model, and the honest status of the system.
 
-Built by **Patrick Joseph Panuncillon**, Director for AI Strategy and Growth.
+Built by **Patrick Joseph Panuncillon**, AI Director and Applied AI Systems Architect.
+
+Principal, MLCx Consultancy · Davao City, Philippines
 
 **Start here: [Authorship, provenance, and verification](authorship-and-verification.html)** sets out what this repository claims, what it expressly does not claim, the build ledger, four tiers of independent verification, and the fixed disclosure standard every page is written to.
 
@@ -10,7 +12,7 @@ Built by **Patrick Joseph Panuncillon**, Director for AI Strategy and Growth.
 
 ## The builds
 
-A six-system production AI stack for a multi-trade, multi-market field-service business, plus the reliability layer underneath it and the search and lifecycle programmes beside it. Sole architect and builder on every one.
+A six-system production AI stack for a multi-trade, multi-market field-service business, plus the reliability layer underneath it and the search and lifecycle programs beside it. Sole architect and builder on every one.
 
 | System | Status | What it is |
 |---|---|---|
@@ -23,15 +25,15 @@ A six-system production AI stack for a multi-trade, multi-market field-service b
 | [Campaign Automation](ai-campaign-automation.html) | In build | Self-serve campaigns from a brand-locked template behind a required human approval gate and a single scheduling path. |
 | [Invoice Automation](ai-invoice-automation.html) | In build, in diagnosis | Deterministic drafting from a versioned rules registry behind a fail-closed validation gate, where the model never touches a total, a tax decision, or an account. |
 
-Status labels are used consistently. **Live** means running in production and in daily use. **In tuning** means live and being scored against real behaviour. **In build** means implemented but not yet in production. **Scoped** means specified and not built. Nothing in build is presented as shipped.
+Status labels are used consistently. **Live** means running in production and in daily use. **In tuning** means live and being scored against real behavior. **In build** means implemented but not yet in production. **Scoped** means specified and not built. Nothing in build is presented as shipped. Every status on these pages is stated as of September 2026.
 
 ---
 
 ## Authorship, not ownership
 
-This repository is a record of **authorship**. It states which systems I personally designed, built, shipped, and operate, timestamped by the commit history of this repository.
+This repository is a record of **authorship**. It states which systems I personally designed, built, and shipped, timestamped by the commit history of this repository.
 
-It is **not** a claim of ownership. Systems built in the course of an employment or client engagement belong to that employer or client. Intellectual property in every system described here rests with the organisation that commissioned it. Nothing in this repository transfers, licenses, or offers any part of it, and nothing here is published on behalf of, or with the endorsement of, any employer or client.
+It is **not** a claim of ownership. Systems built in the course of an employment or client engagement belong to that employer or client. Intellectual property in every system described here rests with the organization that commissioned it. Nothing in this repository transfers, licenses, or offers any part of it, and nothing here is published on behalf of, or with the endorsement of, any employer or client.
 
 See [NOTICE.md](NOTICE.md) for the full statement.
 
@@ -46,7 +48,7 @@ Every page is written to one fixed standard. The following are withheld without 
 - Prompts, prompt templates, and system instructions
 - Credentials, keys, tokens, endpoints, hostnames, and internal identifiers
 - Schemas, data models, and internal record structures
-- Customer data of any kind, in any form, including anonymised or composited
+- Customer data of any kind, in any form, including anonymized or composited
 - Named third-party vendors in the client's operational stack
 - Exact commercial figures, contract terms, and pricing
 - Screenshots or recordings of live systems
